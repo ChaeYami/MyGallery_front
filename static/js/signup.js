@@ -5,9 +5,10 @@ async function handleSignup() {
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
     const nickname = document.getElementById("nickname").value
-    const categories = document.getElementById("categories").value
+    // const profile_img = document.getElementById("myFile").files[0]
 
-    const response = await fetch(`${backend_base_url}/users/signup/`, {
+    
+    const response = await fetch(`${backend_base_url}/user/signup/`, {
         headers: {
             'content-type': 'application/json',
         },
@@ -17,7 +18,6 @@ async function handleSignup() {
             "password": password,
             "nickname": nickname,
             "email": email,
-            "categories": categories
         })
     })
     if (response.status==201){
@@ -37,7 +37,7 @@ async function handleSignupButton() {
 
     if (response.status == 201) {
         alert("이메일 발송 완료. 이메일 인증 후 회원가입을 완료해주세요")
-        window.location.replace(`/login.html`)
+        window.location.replace(`user/login.html`)
     }
     
 }
