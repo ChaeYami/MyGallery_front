@@ -47,12 +47,7 @@ async function Login() {
     }
 }
 
-로그아웃
-async function handlelogout(){
-    localStorage.removeItem("access")
-    localStorage.removeItem("refresh")
-    localStorage.removeItem("payload")
-}
+
 
 // // 회원탈퇴 (미완성)
 // async function withdrawal() {
