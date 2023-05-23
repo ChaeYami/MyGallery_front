@@ -6,7 +6,7 @@ async function Login() {
     const account = document.getElementById("account").value;
     const password = document.getElementById("password").value;
 
-    const response = await fetch(`${backend_base_url}/users/login/`, {
+    const response = await fetch(`${backend_base_url}/user/login/`, {
         headers: {
             'content-type': 'application/json'
         },
@@ -37,7 +37,7 @@ async function Login() {
         localStorage.setItem("payload", jsonPayload);
         alert("로그인 성공");
         
-        location.replace('index.html')
+        location.replace('../index.html')
 
     } else if (response.status === 400 && response_json["non_field_errors"]) {
         alert(response_json["non_field_errors"])
