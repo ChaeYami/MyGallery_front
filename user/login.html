@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gallery | Login</title>
+
+    <!-- JS -->
+    <script src="/static/js/index.js"></script>
+    <script src="/static/js/login.js"></script>
+    
+</head>
+<body>
+
+    <div class="login-form">
+        <form>
+            <div class="login-form-control"><label for="account"></label>
+                <input type="text" name="account" id="account" placeholder="ID">
+            </div>
+            <div class="login-form-control"><label for="password"></label><input type="password"
+                    name="password" id="password" placeholder="password"></div>
+            <div class="login-button">
+                <button type="button" onclick="Login()">로그인</button>
+            </div>
+            <hr/>
+            
+        </form>
+        <div class="buttons">
+            <button><a href="./signup.html"> 회원가입</a> </button>
+            <button><a href="./reset_password.html"> 비밀번호 재설정 </a></button>
+        </div>
+    </div>
+    
+</body>
+</html>

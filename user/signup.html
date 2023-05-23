@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gallery | SignUp</title>
+
+    <!-- JS -->
+    <script src="/static/js/index.js"></script>
+    <script src="/static/js/signup.js"></script>
+
+</head>
+<body>
+    
+    <div class="signup-form">
+        <form>
+            <div class="signup-form-control"><label for="account"></label>
+                <input type="text" name="account" id="account" placeholder="ID" required>
+            </div>
+            <div class="signup-form-control"><label for="email"></label><input type="email"
+                    name="email" id="email" placeholder="Email" required></div>
+            <div class="signup-form-control"><label for="password"></label><input type="password"
+                    name="password" id="password" placeholder="password" required></div>
+
+            <div class="signup-form-control"><label for="nickname"></label><input type="text"
+                    name="nickname" id="nickname" placeholder="Nickname" required></div>
+
+            <div class="signup-form-control mb-3"><label for="formFile" class="form-label">프로필 이미지</label><input
+                    class="form-control" type="file" name="profile_img" id="profile_img" placeholder="profile_img"></div>
+            
+            <div class="signup-button">
+                <button type="button" onclick="handleSignupButton()">회원가입</button>
+            </div>
+            <hr />
+            <div class="buttons">
+                <button><a href="./login.html" style="text-decoration: none; color: black;"> 로그인</a> </button>
+                <button><a href="./reset_password.html" style="text-decoration: none; color: black;"> 비밀번호 재설정 </a></button>
+            </div>
+        </form>
+    </div>
+    </div>
+
+
+</body>
+</html>
