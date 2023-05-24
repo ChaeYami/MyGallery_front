@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 const payload = localStorage.getItem("payload");
                 const payload_parse = JSON.parse(payload);
-                intro.innerText = `${payload_parse.nickname}님 안녕하세요`;
+                intro.innerText = `${payload_parse.nickname}`;
                 intro.href = `${frontend_base_url}/user/profile.html?user_id=` + payload_parse.user_id;
 
             

@@ -15,8 +15,7 @@ async function Login() {
             "account": account,
             "password": password
         })
-    }
-    )
+    })
     const response_json = await response.json()
 
     localStorage.setItem("access", response_json.access);
@@ -46,30 +45,5 @@ async function Login() {
         alert("아이디와 비밀번호를 확인해주세요.");
     }
 }
-
-
-
-// // 회원탈퇴 (미완성)
-// async function withdrawal() {
-//     var delConfirm = confirm("정말 계정 비활성화를 진행하시겠습니까?")
-//     if (delConfirm) {
-//     const response = await fetch(`${backend_base_url}/users/withdraw/<int:user_id>/`, {
-//         method: "DELETE",
-//         headers: {
-//         Accept: "application/json",
-//         "Content-type": "application/json",
-//         "Authorization": "Bearer " + localStorage.getItem("access")
-//         }
-//     })
-
-//     withdrawal_json = await response.json()
-//     if (response.status === 200) {
-//     alert(withdrawal_json["message"])
-//     localStorage.removeItem("payload")
-//     localStorage.removeItem("access")
-//     localStorage.removeItem("refresh")
-//     location.replace('user.html')    }
-//     }
-// }
 
 
