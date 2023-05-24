@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gallery | Profile</title>
+    
+    <link href="../static/css/base.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/right_sidebar.js"></script>
+    <script src="../static/js/left_sidebar.js"></script>
+</head>
+<body>
+    <div id = "left-sidebar"></div>
+    <div id = "right-sidebar"></div>
+    <h1>프로필 페이지</h1>
+    <div id="profile-info">
+        <h2>사용자 정보</h2>
+        <p><strong>ID:</strong> <span id="account"></span></p>
+        <p><strong>닉네임:</strong> <span id="nickname"></span></p>
+        <p><strong>소개:</strong> <span id="introduce"></span></p>
+        <p><strong>가입일:</strong> <span id="joined-at"></span></p>
+        <!-- 다른 필드도 필요한 경우 여기에 추가하세요 -->
+    </div>
+    
+    <div id="delete-account">
+        <h2>회원 탈퇴</h2>
+        <form id="delete-form">
+            <label for="password">비밀번호:</label>
+            <input type="password" id="password" name="password">
+            <button type="button">탈퇴</button>
+        </form>
+    </div>
+</body>
+</html>
