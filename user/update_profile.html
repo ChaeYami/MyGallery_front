@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>My Gallery | Edit Profile</title>
 
     <link href="../static/css/base.css" rel="stylesheet">
@@ -18,9 +19,22 @@
     <div id="profile-edit-form">
         <h2>프로필 수정</h2>
         <form id="update-form">
-            <!-- 수정폼 -->
-            <button type="submit">수정</button>
-        </form>
+             <form action="/profile" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="profilePicture">프로필 사진:</label>
+            <input type="file" id="profilePicture" name="profilePicture">
+        </div>
+        <div>
+            <label for="username">작성자 이름:</label>
+            <input type="text" id="username" name="username" value="기존 사용자 이름">
+        </div>
+        <div>
+            <label for="statusMessage">상태 메세지:</label>
+            <textarea id="statusMessage" name="statusMessage">기존 상태 메세지</textarea>
+        </div>
+        <button type="submit">수정하기</button>
+    </form>
     </div>
 </body>
 </html>
+
