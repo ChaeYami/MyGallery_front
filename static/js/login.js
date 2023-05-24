@@ -15,8 +15,7 @@ async function Login() {
             "account": account,
             "password": password
         })
-    }
-    )
+    })
     const response_json = await response.json()
 
     localStorage.setItem("access", response_json.access);

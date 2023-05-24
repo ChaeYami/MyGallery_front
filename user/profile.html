@@ -26,13 +26,28 @@
         <p>가입일: <span id="joined-at"></span></p>
     </div>
     
+    <div id="edit-account" style="display: none;">
+        <h2>회원 정보 수정</h2>
+        <!-- 수정 폼 -->
+    </div>
+
+    <div id="reactivate-account" style="display: none;">
+        <h2>계정 재활성화</h2>
+        <form id="reactivate-form">
+            <label for="email">이메일:</label>
+            <input type="email" id="email" name="email">
+            <button type="button" onclick="reactivateAccount()">재활성화 메일 보내기</button>
+        </form>
+    </div>
+
     <div id="delete-account">
         <h2>회원 탈퇴</h2>
         <form id="delete-form">
             <label for="password">비밀번호:</label>
             <input type="password" id="password" name="password">
-            <button type="button">탈퇴</button>
+            <button type="button" onclick="deactivateAccount()">탈퇴</button>
         </form>
     </div>
+
 </body>
 </html>
