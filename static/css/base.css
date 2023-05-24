@@ -1,3 +1,6 @@
+body{
+  width: 60vw;
+}
 #right-sidebar {
     position: fixed;
     right: 0px;
@@ -22,10 +25,10 @@
     z-index: 1;
   }
 
-  li{
+  .sidebar li{
     list-style: none
   }
 
-  ul{
+  .sidebar ul{
     padding-inline-start: 0px;
   }
