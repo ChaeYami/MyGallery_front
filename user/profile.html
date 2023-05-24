@@ -17,30 +17,37 @@
 <body>
     <div id = "left-sidebar"></div>
     <div id = "right-sidebar"></div>
-    <div>프로필 페이지</div>
     <div id="profile-info">
-        <h2>사용자 정보</h2>
-        <p>ID: <span id="account"></span></p>
-        <p>닉네임: <span id="nickname"></span></p>
-        <p>소개: <span id="introduce"></span></p>
-        <p>가입일: <span id="joined-at"></span></p>
+        <p id="nickname"></p>
+        <p id="introduce"></p>
+    </div>
+    <div>
+        <a href="게시글목록" id="article-count"></a>
+        <a href="팔로워목록" id = "followers-count"></a>
+        <a href="팔로잉목록" id = "following-count"></a>
     </div>
     
     <div id="edit-account" style="display: none;">
-        <h2>회원 정보 수정</h2>
-        <!-- 수정 폼 -->
+        <a href="프로필 편집 html">프로필 수정</a> | <a href="글작성html">글작성</a>
+
     </div>
 
     
     </div>
-
-    <div id="delete-account">
-        <h2>회원 탈퇴</h2>
-        <form id="delete-form">
+    
+    <div id="delete-account" style="display: none;">
+        <button type="button" onclick="toggleDeleteForm()">회원탈퇴</button>
+        <form id="delete-form"style="display: none;>
             <label for="password">비밀번호:</label>
             <input type="password" id="password" name="password">
             <button type="button" onclick="deactivateAccount()">탈퇴</button>
         </form>
+    </div>
+
+    <div>
+
+        <!-- 글목록 영역 -->
+
     </div>
 
 </body>
