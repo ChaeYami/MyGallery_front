@@ -1,6 +1,7 @@
 window.onload = () => {
     const urlParams = new URLSearchParams(window.location.search).get('user_id');
     Profile(urlParams);
+    loadArticles(urlParams);
 }
 
 
@@ -27,9 +28,10 @@ async function Profile(user_id) {
 
     document.getElementById('nickname').innerText = response_json.nickname
     document.getElementById('introduce').innerText = response_json.introduce
-    document.getElementById('article-count').innerText = response_json.article_count;
+    
     document.getElementById('followers-count').innerText = response_json.followers_count;
     document.getElementById('following-count').innerText = response_json.following_count;
+    document.getElementById('list-switch').innerHTML=`<a href="profile.html?user_id=${user_id}">게시물</a> | <a href="profile_heart_list.html?user_id=${user_id}">좋아요</a>`;
     
 
     if (user_id_int === logined_id) {
@@ -40,6 +42,18 @@ async function Profile(user_id) {
     }else{
         document.getElementById('edit-account').style.display = "none";
     }
+    fetch(`${backend_base_url}/article/list/${user_id}`)
+    .then(response => response.json())
+    .then(data => {
+        // 게시글 목록의 개수 세기
+        const articleCount = data.length;
+
+        // 프로필 페이지에 게시글 개수 표시
+        document.getElementById('article-count').innerText = articleCount;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
 function toggleDeleteForm() {
@@ -76,6 +90,27 @@ async function deactivateAccount() {
     }
 }
 
+async function loadArticles(user_id) {
+    const response = await fetch(`${backend_base_url}/article/list/${user_id}`, {
+        method: 'GET',
+    });
+
+    if (response.ok) {
+        const articles = await response.json();
+        const articleListContainer = document.getElementById('article-list');
+
+        articles.forEach((article) => {
+            const articleElement = document.createElement('div');
+            articleElement.innerHTML = `
+                <h3>${article.title}</h3>
+                <p>${article.content}</p>
+            `;
+            articleListContainer.appendChild(articleElement);
+        });
+    } else {
+        console.error('Failed to load articles:', response.status);
+    }
+}
 // 계정 재활성화
 // async function reactivateAccount() {
 //     const reactivateConfirm = confirm("계정을 재활성화하시겠습니까?");
