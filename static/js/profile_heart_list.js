@@ -4,9 +4,7 @@ window.onload = () => {
     loadHeartArticles(urlParams);
 }
 
-
 const user_id = parseInt(new URLSearchParams(window.location.search).get('user_id'));
-
 
 const payload = localStorage.getItem("payload");
 const payload_parse = JSON.parse(payload)
@@ -14,6 +12,26 @@ const payload_parse = JSON.parse(payload)
 const token = localStorage.getItem("access");
 const logined_id = parseInt(payload_parse.user_id);
 const account = payload_parse.account;
+
+
+// 팔로우
+async function handleFollow(user_id) {
+    const response = await fetch(`${backend_base_url}/user/${user_id}/follow/`, {
+        headers: {
+            'content-type': 'application/json',
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: 'POST',
+
+    })
+    if (response.status === 200) {
+        alert(response)
+        window.location.reload()
+    } else if (response.status === 403) {
+        alert(response)
+    }
+
+}
 
 
 
@@ -38,8 +56,19 @@ async function Profile(user_id) {
         // 해당 프로필 페이지가 로그인된 사용자의 것일 때 - 수정,탈퇴 보이기
         document.getElementById('edit-account').style.display = "block";
         document.getElementById('delete-account').style.display = "block";
+        document.getElementById('follow-button').style.display = "none";
 
-    }else{
+    }else {
+        
+        const followButton = document.getElementById('follow-button')
+
+        const followers = response_json.followers.includes(account)
+        console.log(followers)
+        if (followers) {
+            followButton.innerHTML = `<button onclick="handleFollow(${user_id})">언팔로우</button>`;
+        } else {
+            followButton.innerHTML = `<button onclick="handleFollow(${user_id})">팔로우</button>`;
+        }
         document.getElementById('edit-account').style.display = "none";
     }
     fetch(`${backend_base_url}/article/list/${user_id}`)
