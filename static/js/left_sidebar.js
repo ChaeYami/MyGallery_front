@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 let logoutBtn = document.createElement("button");
                 logoutBtn.setAttribute("class", "nav-link btn");
                 logoutBtn.innerText = "로그아웃";
-                logoutBtn.setAttribute("onclick", "handleLogout()");
+                logoutBtn.setAttribute("onclick", "confirmLogout()");
 
 
                 newLi.appendChild(logoutBtn);
@@ -48,9 +48,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 })
 
-//로그아웃
-async function handlelogout(){
-    localStorage.removeItem("access")
-    localStorage.removeItem("refresh")
-    localStorage.removeItem("payload")
-}
