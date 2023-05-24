@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const leftSidebarContainer = document.querySelector("#left-sidebar");
 
     if (leftSidebarContainer) {
-        fetch("../right_sidebar.html")
+        fetch("../left_sidebar.html")
             .then(response => response.text())
             .then(data => {
                 leftSidebarContainer.innerHTML = data;
