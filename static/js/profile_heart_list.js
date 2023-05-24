@@ -1,7 +1,7 @@
 window.onload = () => {
     const urlParams = new URLSearchParams(window.location.search).get('user_id');
     Profile(urlParams);
-    loadArticles(urlParams);
+    loadHeartArticles(urlParams);
 }
 
 
@@ -90,8 +90,8 @@ async function deactivateAccount() {
     }
 }
 
-async function loadArticles(user_id) {
-    const response = await fetch(`${backend_base_url}/article/list/${user_id}`, {
+async function loadHeartArticles(user_id) {
+    const response = await fetch(`${backend_base_url}/article/hearts/${user_id}`, {
         method: 'GET',
     });
 
