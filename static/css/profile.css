@@ -9,9 +9,7 @@
 }
 
 #profile_img {
-    width: 20vw;
-    min-width: 150px;
-    max-width: 200px;
+    width: 150px;
 }
 
 #profile-content {
@@ -24,6 +22,7 @@
 #list-switch{
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 20px;
 }
 
 #article-list{
@@ -32,12 +31,25 @@
     justify-content: flex-start;
     align-items: center;
 }
+
+/* 미디어 쿼리 */
+@media screen and (max-width: 768px) {
+    #article-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+  }
+
+
+
 #article-list div{
-    width: 200px;
+    width: 180px;
     margin: 20px;
 
 }
 #article-list img{
-    width: 200px;
+    width: 180px;
     
 }
