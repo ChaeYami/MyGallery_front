@@ -1,7 +1,13 @@
-body{
-  width: 55vw;
-  margin: 0 auto;
+* {
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    width: 55vw;
+    margin: 0 auto;
+}
+
 #right-sidebar {
     position: fixed;
     right: 0px;
@@ -12,9 +18,9 @@ body{
     align-items: center;
     flex-flow: column;
     z-index: 1;
-  }
+}
 
-  #left-sidebar {
+#left-sidebar {
     position: fixed;
     left: 0px;
     width: 20vw;
@@ -24,12 +30,12 @@ body{
     align-items: center;
     flex-flow: column;
     z-index: 1;
-  }
+}
 
-  .sidebar li{
+.sidebar li {
     list-style: none
-  }
+}
 
-  .sidebar ul{
+.sidebar ul {
     padding-inline-start: 0px;
-  }
+}
