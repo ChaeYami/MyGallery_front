@@ -42,7 +42,12 @@ async function Profile(user_id) {
     })
 
     response_json = await response.json()
+
     const user_id_int = parseInt(user_id)
+    const profile_img_url = `${backend_base_url}${response_json.profile_img}`;
+    const profile_img_element = document.getElementById("profile_img")
+
+    profile_img_element.setAttribute("src", profile_img_url)
 
     document.getElementById('nickname').innerText = response_json.nickname
     document.getElementById('introduce').innerText = response_json.introduce
@@ -51,15 +56,15 @@ async function Profile(user_id) {
     document.getElementById('following-count').innerText = response_json.following_count;
     document.getElementById('list-switch').innerHTML = `<a href="profile.html?user_id=${user_id}">게시물</a> | <a href="profile_heart_list.html?user_id=${user_id}">좋아요</a>`;
 
-
     if (user_id_int === logined_id) {
         // 해당 프로필 페이지가 로그인된 사용자의 것일 때 - 수정,탈퇴 보이기
         document.getElementById('edit-account').style.display = "block";
+
         document.getElementById('delete-account').style.display = "block";
-        document.getElementById('follow-button-section').style.display = "none";
+        document.getElementById('follow-button').style.display = "none";
 
     } else {
-        
+
         const followButton = document.getElementById('follow-button')
 
         const followers = response_json.followers.includes(account)
@@ -131,8 +136,11 @@ async function loadArticles(user_id) {
         articles.forEach((article) => {
             const articleElement = document.createElement('div');
             articleElement.innerHTML = `
+            <a href="../article/detail.html?id=${article.id}">
                 <h3>${article.title}</h3>
+                <img class="article-list-image" src="${backend_base_url}${article.changed_image}" alt="">
                 <p>${article.content}</p>
+                </a>
             `;
             articleListContainer.appendChild(articleElement);
         });
