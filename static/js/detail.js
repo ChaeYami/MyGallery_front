@@ -2,7 +2,9 @@ window.onload = () => {
     // const urlParams = new URLSearchParams(window.location.search).get('id');
     ArticleDetail();
     loadComments();
-    // CountHeart();
+    CountHeart();
+    isHearted()
+
 }
 
 const article_id = new URLSearchParams(window.location.search).get('id');
@@ -20,7 +22,7 @@ async function ArticleDetail() {
     const content = document.getElementById('content');
     const created_at = document.getElementById('created-at');
     // const updated_at = document.getElementById('updated-at');
-    
+
     const img = document.getElementById('article-img');
 
     author.innerHTML = response_json.user
@@ -28,8 +30,8 @@ async function ArticleDetail() {
     content.innerText = response_json.content
     created_at.innerText = response_json.created_at
     // updated_at.innerText = response_json.updated_at
-    
-    img.innerHTML= `<img class="article-list-image" src="${backend_base_url}${response_json.changed_image}" alt="">`
+
+    img.innerHTML = `<img class="article-list-image" src="${backend_base_url}${response_json.changed_image}" alt="">`
 
 }
 
@@ -149,5 +151,64 @@ async function CommentDelete(comment_id) {
         } else {
             alert("권한이 없습니다.")
         }
+    }
+}
+
+// 좋아요 누르기
+async function ClickHeart() {
+
+    const response = await fetch(`${backend_base_url}/article/${article_id}/hearts/`, {
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            'content-type': 'application/json',
+        },
+        method: 'POST',
+    })
+    if (response.status === 200) {
+        alert("❤️")
+        location.reload();
+    }
+}
+
+
+// 좋아요 갯수
+async function CountHeart() {
+
+    const response = await fetch(`${backend_base_url}/article/${article_id}/hearts/`, {
+        headers: {
+
+            'content-type': 'application/json',
+        },
+        method: 'GET',
+    })
+    response_json = await response.json()
+    document.getElementById('heart-count').innerText = response_json.hearts
+}
+
+
+// 게시글 좋아요 여부
+const payload = localStorage.getItem("payload");
+const payload_parse = JSON.parse(payload)
+const user_id = payload_parse.user_id
+
+async function isHearted() {
+    const response = await fetch(`${backend_base_url}/article/hearts/${user_id}`, {
+        method: 'GET',
+    });
+
+    if (response.ok) {
+        const articles = await response.json();
+        const ids = articles.map(article => parseInt(article.id));
+        const intarticle_id = parseInt(article_id)
+        const isArticleExists = ids.includes(intarticle_id);
+        console.log(isArticleExists)
+        if(isArticleExists){
+            document.getElementById('heart-icon').innerText  ='❤️'
+        }else{
+            document.getElementById('heart-icon').innerText= '♡'
+
+        }
+    } else {
+        console.error('Failed to load articles:', response.status);
     }
 }
