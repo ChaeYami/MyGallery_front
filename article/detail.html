@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
 <head>
-  <title>상세 페이지</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세 페이지</title>
 </head>
+
 <body>
-  <div class="detail-container">
-    <h2>글 작성자</h2>
-    <h3>제목</h3>
-    <p>내용</p>
-    <img src="이미지_경로" alt="이미지_설명">
+    <div class="detail-container">
+        <h2>글 작성자</h2>
+        <h3>제목</h3>
+        <p>내용</p>
+        <img src="이미지_경로" alt="이미지_설명">
 
-    <div>
-      <button id="edit-btn" class="btn">수정</button>
-      <button id="delete-btn" class="btn">삭제</button>
-      <button id="like-btn" class="btn">좋아요</button>
-      <span id="like-count">0</span>명이 좋아합니다.
+        <div>
+            <button id="edit-btn" class="btn">수정</button>
+            <button id="delete-btn" class="btn">삭제</button>
+            <button id="like-btn" class="btn">좋아요</button>
+            <span id="like-count">0</span>명이 좋아합니다.
+        </div>
+
+        <h3>댓글</h3>
+        <textarea id="comment-input" placeholder="댓글 작성"></textarea>
+        <button id="comment-btn">댓글 달기</button>
     </div>
-
-    <h3>댓글</h3>
-    <textarea id="comment-input" placeholder="댓글 작성"></textarea>
-    <button id="comment-btn">댓글 달기</button>
-  </div>
 </body>
-</html>
 
+</html>
