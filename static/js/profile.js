@@ -42,13 +42,13 @@ async function Profile(user_id) {
     })
 
     response_json = await response.json()
-    
+
     const user_id_int = parseInt(user_id)
     const profile_img_url = `${backend_base_url}${response_json.profile_img}`;
     const profile_img_element = document.getElementById("profile_img")
 
     profile_img_element.setAttribute("src", profile_img_url)
-    
+
     document.getElementById('nickname').innerText = response_json.nickname
     document.getElementById('introduce').innerText = response_json.introduce
 
@@ -59,12 +59,12 @@ async function Profile(user_id) {
     if (user_id_int === logined_id) {
         // 해당 프로필 페이지가 로그인된 사용자의 것일 때 - 수정,탈퇴 보이기
         document.getElementById('edit-account').style.display = "block";
-        
+
         document.getElementById('delete-account').style.display = "block";
         document.getElementById('follow-button').style.display = "none";
 
     } else {
-        
+
         const followButton = document.getElementById('follow-button')
 
         const followers = response_json.followers.includes(account)
@@ -136,9 +136,9 @@ async function loadArticles(user_id) {
         articles.forEach((article) => {
             const articleElement = document.createElement('div');
             articleElement.innerHTML = `
-            <a href="detail.html?id=${article.id}">
+            <a href="../article/detail.html?id=${article.id}">
                 <h3>${article.title}</h3>
-                <p>${article.changed_image}<p>
+                <img class="article-list-image" src="${backend_base_url}${article.changed_image}" alt="">
                 <p>${article.content}</p>
                 </a>
             `;
