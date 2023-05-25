@@ -16,6 +16,7 @@ a {
 #right-sidebar {
     position: fixed;
     right: 0px;
+    top: 0;
     width: 20vw;
     min-width: 120px;
     height: 100%;
@@ -31,6 +32,7 @@ a {
 #left-sidebar {
     position: fixed;
     left: 0px;
+    top: 0;
     width: 20vw;
     min-width: 120px;
     height: 100%;
@@ -40,7 +42,9 @@ a {
     flex-flow: column;
     z-index: 1;
 }
-
+.sidebar{
+    margin-top: 20px;
+}
 .sidebar li {
     list-style: none;
     margin: 20px;
@@ -49,6 +53,43 @@ a {
 .sidebar ul {
     padding-inline-start: 0px;
 }
+.navbar{
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top:-50px;
+    background-color: antiquewhite;
+}
+.navbar li{
+    list-style: none;
+
+}
+.navbar .container #navbar-right{
+    height: 50px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+/* 미디어 쿼리 */
+@media screen and (max-width: 768px) {
+    #left-sidebar {
+      transform: translateX(-100%);
+    }
+    #right-sidebar {
+        transform: translateX(100%);
+      }
+  
+    body {
+      margin-top: 40px;
+      width: 100%;
+    }
+  
+    .navbar {
+      transform: translateY(50px);
+    }
+  }
 
 #intro a{
     display: flex;

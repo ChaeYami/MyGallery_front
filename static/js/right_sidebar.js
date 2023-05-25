@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 rightSidebarContainer.innerHTML = data;
 
-
                 const payload = localStorage.getItem("payload");
                 const payload_parse = JSON.parse(payload);
                 intro.innerHTML = `
