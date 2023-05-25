@@ -10,7 +10,6 @@ $(document).ready(async function () {
   // 이미지 띄우기, 아직 업로드X
   $('#image-input').change(async function () {
     var change_id = $('#model-select').val()
-    console.log("이미지 인풋 바뀜")
     var file = $('#image-input').prop('files')[0];
 
     // 파일 크기 제한 (단위: 바이트)
@@ -27,16 +26,6 @@ $(document).ready(async function () {
       alert('이미지 파일 크기는 3KB를 초과할 수 없습니다.');
       return;
     }
-
-    // var reader = new FileReader();
-
-    // // FileReader를 사용하여 이미지 파일을 읽고, 미리보기 이미지로 설정
-    // reader.onload = function (e) {
-    //     $('#image-preview').attr('src', e.target.result);
-    //     // $('.view-img').addClass('card-img-top')
-    // }
-    // reader.readAsDataURL(file);
-
 
     if (file && change_id) {
       // FormData 객체 생성
@@ -55,17 +44,12 @@ $(document).ready(async function () {
       reader.readAsDataURL(file);
     }
 
-
-
   });
 
   $('#model-select').off('change').on('change', async function () {
-    console.log("모델 선택 바뀜")
     var change_id = $('#model-select').val()
     var file = $('#image-input').prop('files')[0];
 
-
-    console.log("모델 선택 바뀜2")
     // 이미지가 있으면 추가
     if (file && change_id) {
       // FormData 객체 생성
