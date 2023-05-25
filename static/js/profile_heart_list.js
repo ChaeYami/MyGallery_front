@@ -55,6 +55,9 @@ async function Profile(user_id) {
     if (user_id_int === logined_id) {
         // 해당 프로필 페이지가 로그인된 사용자의 것일 때 - 수정,탈퇴 보이기
         document.getElementById('edit-account').style.display = "block";
+        document.getElementById('edit-account').innerHTML=`
+        <a href="../user/profile_update.html?user_id=${user_id}">프로필 수정</a> | <a href="../article/articles.html">글작성</a>
+        `
         document.getElementById('delete-account').style.display = "block";
         document.getElementById('follow-button').style.display = "none";
 
