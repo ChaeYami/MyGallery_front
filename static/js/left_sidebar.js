@@ -31,14 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
             
 
                 let loginbtn = document.getElementById("login-btn");
+                let signupbtn = document.getElementById("signup-btn");
+
+                let createbtn = document.getElementById('create-article')
                 if (loginbtn) {
                     loginbtn.style.display = "none";
+                    createbtn.style.display="block";
+                    signupbtn.style.display = "none";
+
                 }
 
-                let signupbtn = document.getElementById("signup-btn");
-                if (signupbtn) {
-                    signupbtn.style.display = "none";
-                }
+              
 
             })
             .catch(error => {

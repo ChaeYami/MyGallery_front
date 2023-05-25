@@ -42,7 +42,8 @@ a {
 }
 
 .sidebar li {
-    list-style: none
+    list-style: none;
+    margin: 20px;
 }
 
 .sidebar ul {
