@@ -7,7 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Gallery | Profile</title>
 
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <!-- css -->
     <link href="../static/css/base.css" rel="stylesheet">
+    <link href="../static/css/profile.css" rel="stylesheet">
 
     <!-- JS -->
     <script src="../static/js/index.js"></script>
@@ -19,40 +25,51 @@
 <body>
     <div id="left-sidebar"></div>
     <div id="right-sidebar"></div>
-    <div id="profile-info">
-        <p><span id="nickname"></span><span id ="follow-button" style="display: block;"></span></p>
-        <p id="introduce"></p>
+
+    <div id="profile-wrap">
+
+        <div id="delete-account" style="display: none;">
+            <button type="button" onclick="toggleDeleteForm()">회원탈퇴</button>
+            <form id="delete-form" style="display: none" ;>
+                <label for=" password">비밀번호:</label>
+                <input type="password" id="password" name="password">
+                <button type="button" onclick="deactivateAccount()">탈퇴</button>
+            </form>
+        </div>
+
+        <div id="profile-info">
+            <img id="profile_img" src="" class="card-img-top" alt="...">
+
+            <div id="profile-content">
+                <span id="nickname"></span><span id="follow-button" style="display: block;"></span>
+                <p id="introduce"></p>
+
+                <div>
+                    게시물 <a id="article-count"></a>
+                    | 팔로워 <a href="팔로워목록" id="followers-count"></a>
+                    | 팔로잉 <a href="팔로잉목록" id="following-count"></a>
+                </div>
+
+                <p id="edit-account" style="display: none;">
+                    <a href="../user/profile_update.html">프로필 수정</a> | <a href="../article/articles.html">글작성</a>
+                </p>
+            </div>
+        </div>
+        <hr width="100%">
+
+        <div id="list-switch">
+
+        </div>
+
+
+
+        <div>
+            <div id="article-list"></div>
+            <!-- 글목록 영역 -->
+            <!-- <img class="article-list-image" -->
+
+        </div>
     </div>
-    <div>
-        게시물 <a id="article-count"></a>
-        | 팔로워 <a href="팔로워목록" id="followers-count"></a>
-        | 팔로잉 <a href="팔로잉목록" id="following-count"></a>
-    </div>
-
-    <div id="edit-account" style="display: none;">
-        <a href="../user/update_profile.html">프로필 수정</a> | <a href="../article/articles.html">글작성</a>
-
-    </div>
-
-    <div id = "list-switch">
-        
-    </div>
-
-    <div id="delete-account" style="display: none;">
-        <button type="button" onclick="toggleDeleteForm()">회원탈퇴</button>
-        <form id="delete-form" style="display: none";>
-            <label for=" password">비밀번호:</label>
-            <input type="password" id="password" name="password">
-            <button type="button" onclick="deactivateAccount()">탈퇴</button>
-        </form>
-    </div>
-
-    <div>
-        <div id="article-list"></div>
-        <!-- 글목록 영역 -->
-
-    </div>
-
 </body>
 
 </html>
