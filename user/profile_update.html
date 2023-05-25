@@ -6,13 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>My Gallery | Edit Profile</title>
-
+    
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+   
+    <!-- css -->
     <link href="../static/css/base.css" rel="stylesheet">
 
     <!-- JS -->
     <script src="../static/js/index.js"></script>
     <script src="../static/js/right_sidebar.js"></script>
     <script src="../static/js/left_sidebar.js"></script>
+    <script src="../static/js/profile_update.js"></script>
 
 </head>
 <body>
@@ -21,18 +27,18 @@
         <form id="update-form">
              <form action="/profile" method="post" enctype="multipart/form-data">
         <div>
-            <label for="profilePicture">프로필 사진:</label>
-            <input type="file" id="profilePicture" name="profilePicture">
+            <label for="profile_img">프로필 사진:</label>
+            <input type="file" id="profile_img" name="profile_img">
         </div>
         <div>
-            <label for="username">작성자 이름:</label>
-            <input type="text" id="username" name="username" value="기존 사용자 이름">
+            <label for="nickname">닉네임</label>
+            <input type="text" id="nickname" name="nickname">
         </div>
         <div>
-            <label for="statusMessage">상태 메세지:</label>
-            <textarea id="statusMessage" name="statusMessage">기존 상태 메세지</textarea>
+            <label for="introduce">소개</label>
+            <textarea id="introduce" name="introduce"></textarea>
         </div>
-        <button type="submit">수정하기</button>
+        <button type="button" onclick="updateProfile()">수정하기</button>
     </form>
     </div>
 </body>
