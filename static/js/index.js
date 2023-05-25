@@ -6,7 +6,7 @@ $(document).ready(function () {
     getArticles()
 })
 
-
+// 게시글 목록 가져오기
 function getArticles() {
     $('#card_list').empty()
 
@@ -15,17 +15,18 @@ function getArticles() {
         type: "GET",
         dataType: "json",
         success: function (response) {
-            console.log(response[0])
+            console.log(response[2]['hearts'].length)
             const rows = response;
             for (let i = 0; i < rows.length; i++) {
                 let article_id = rows[i]['id']
                 let article_title = rows[i]['title']
                 let article_author = rows[i]['user']
                 let article_image = rows[i]['changed_image']
+                let hearts_count = rows[i]['hearts'].length
 
                 let temp_html = `<div class="card">
                                     <div class="image_box">
-                                        <a href="" id="img${article_id}">
+                                        <a href="./article/detail.html?id=${article_id}">
                                             <img class="image"
                                                 src="${backend_base_url}${article_image}"
                                                 alt="">
@@ -34,27 +35,29 @@ function getArticles() {
                                     <div class="box_wrap">
                                         <div class="text_box">
                                             <div class="title">
-                                                <a href="" id="title${article_id}">
+                                                <a href="./article/detail.html?id=${article_id}">
                                                     ${article_title}
                                                 </a>
                                             </div>
                                             <div class="author">
-                                                <a href="">
-                                                    ${article_author}
+                                                <a href="./user/profile.html?id=${article_author.id}">
+                                                    ${article_author.nickname}
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="like_box">
-                                            <div class="like_image_box">
+                                        <div class="like_box" id="like_box">
+                                            
+                                            <div class="like_image_box" id="${article_id}">
                                                 <a href="">
                                                     <img class="like_image"
-                                                        src="https://png.pngtree.com/png-vector/20220428/ourmid/pngtree-smooth-glossy-heart-vector-file-ai-and-png-png-image_4557871.png"
+                                                        src=""
                                                         alt="">
                                                 </a>
                                             </div>
                                             <div class="like_count">
-                                                27
+                                                ${hearts_count}
                                             </div>
+                                        
                                         </div>
                                     </div>
                                 </div>`
@@ -68,13 +71,14 @@ function getArticles() {
     });
 }
 
+
 //로그아웃
 function confirmLogout() {
     if (confirm("로그아웃하시겠습니까?")) {
         handleLogout();
     }
 }
-async function handleLogout(){
+async function handleLogout() {
     localStorage.removeItem("access")
     localStorage.removeItem("refresh")
     localStorage.removeItem("payload")
