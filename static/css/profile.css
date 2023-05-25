@@ -1,0 +1,24 @@
+#profile-wrap{
+    padding: 30px;
+}
+
+#profile-info{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#profile_img {
+    width: 20vw;
+    min-width: 150px;
+    max-width: 300px;
+}
+
+#profile-content {
+    min-width: 220px;
+}
+
+#list-switch{
+    display: flex;
+    justify-content: space-evenly;
+}
