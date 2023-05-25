@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Gallery | 상세 페이지</title>
-    
+
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -43,8 +43,9 @@
             </div>
             <div class="buttons-section">
                 <div id="heart-btn">
-                    <a href="#" onclick="ClickHeart()" style="text-decoration: none;">❤️</a>
-                    <span id="heart-count">좋아요 개수</span>
+                    <a href="#" id="heart-icon" onclick="ClickHeart()" style="text-decoration: none;">❤️</a>
+
+                    <span id="heart-count"></span>
                 </div>
 
 
@@ -60,14 +61,14 @@
                 <label for="comment" class="form-label">댓글 작성</label>
                 <textarea id="comment"></textarea>
             </div>
-            <button type="button"  onclick="save_comment()">등록</button>
+            <button type="button" onclick="save_comment()">등록</button>
         </div>
         <!-- 댓글 작성 끝 -->
         <div id="comment-list">
 
 
             <!-- 댓글 목록 자리 -->
-            
+
 
         </div>
     </div>
