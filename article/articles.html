@@ -2,14 +2,16 @@
 <html>
 <head>
   <title>게시글 작성 페이지</title>
-  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/article.js"></script>
+
 </head>
 <body>
   <div class="post-form">
     <h2>게시글 작성</h2>
 
     <div class="form-group">
-        <!-- 이부분 확인 부탁드려요 사진 미리보기 -->
       <label for="image-input">사진 미리보기</label> 
       <div class="preview">
         <img id="image-preview" src="#" alt="미리보기">
@@ -27,20 +29,25 @@
       <textarea id="content-input" rows="8"></textarea>
     </div>
 
-    <!-- 이거 이렇게 하는 거 맞는지 모르겠네요?! -->
     <div class="form-group">
       <label for="model-select">모델 선택</label>
       <select id="model-select">
-        <option value="model1">모델 1</option>
-        <option value="model2">모델 2</option>
-        <option value="model3">모델 3</option>
+        <option value="">모델 선택</option>
+        <option value="1">제이 라이던</option>
+        <option value="2">윌렘 레히텐슈타인</option>
+        <option value="3">제이슨 푸쉬</option>
+        <option value="4">아냐 셀린</option>
+        <option value="5">빈센트 반 고흐</option>
+        <option value="6">애드바르드 먼크</option>
+        <option value="7">오우키 하루나오</option>
+        <option value="8">피카비아</option>
       </select>
     </div>
 
     <div class="form-group">
       <label>기타</label>
       <button id="preview-btn" class="btn">미리보기</button>
-      <button id="upload-btn" class="btn">사진 업로드</button>
+      <button id="post-btn" class="btn">작성</button>
     </div>
 
     <button id="submit-btn" class="btn">수정</button>
