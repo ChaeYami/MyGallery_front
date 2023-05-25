@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             })
             .catch(error => {
-                console.error("Error fetching navigation bar:", error);
+                console.error("사이드바를 불러오는데 오류가 발생했습니다.", error);
             });
     }
 
