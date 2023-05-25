@@ -136,8 +136,11 @@ async function loadArticles(user_id) {
         articles.forEach((article) => {
             const articleElement = document.createElement('div');
             articleElement.innerHTML = `
+            <a href="detail.html?id=${article.id}">
                 <h3>${article.title}</h3>
+                <p>${article.changed_image}<p>
                 <p>${article.content}</p>
+                </a>
             `;
             articleListContainer.appendChild(articleElement);
         });
