@@ -1,63 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Gallery | SignUp</title>
-    
+
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-   
+
     <!-- css -->
     <link href="../static/css/base.css" rel="stylesheet">
 
 
-    <!-- JS -->
-    <script src="../static/js/index.js"></script>
-    <script src="../static/js/signup.js"></script>
-    <script src="../static/js/right_sidebar.js"></script>
-    <script src="../static/js/left_sidebar.js"></script>
-    <script src="../static/js/nav.js"></script>
+
 
 </head>
 
 <body>
-<!-- 상단 네비게이션바 -->
-<div id="navbar-container"></div>
+    <!-- 상단 네비게이션바 -->
+    <div id="navbar-container"></div>
 
-<div id="left-sidebar"></div>
-<div id="right-sidebar"></div>
-    
+    <div id="left-sidebar"></div>
+    <div id="right-sidebar"></div>
+
     <div class="signup-form">
         <form>
             <div class="signup-form-control"><label for="account"></label>
                 <input type="text" name="account" id="account" placeholder="ID" required>
             </div>
-            <div class="signup-form-control"><label for="email"></label><input type="email"
-                    name="email" id="email" placeholder="Email" required></div>
-            <div class="signup-form-control"><label for="password"></label><input type="password"
-                    name="password" id="password" placeholder="password" required></div>
+            <div class="signup-form-control"><label for="email"></label><input type="email" name="email" id="email"
+                    placeholder="Email" required></div>
+            <div class="signup-form-control"><label for="password"></label><input type="password" name="password"
+                    id="password" placeholder="password" required></div>
 
-            <div class="signup-form-control"><label for="nickname"></label><input type="text"
-                    name="nickname" id="nickname" placeholder="Nickname" required></div>
+            <div class="signup-form-control"><label for="nickname"></label><input type="text" name="nickname"
+                    id="nickname" placeholder="Nickname" required></div>
 
             <div class="signup-form-control mb-3"><label for="formFile" class="form-label">프로필 이미지</label><input
-                    class="form-control" type="file" name="profile_img" id="profile_img" placeholder="profile_img"></div>
-            
+                    class="form-control" type="file" name="profile_img" id="profile_img" placeholder="profile_img">
+            </div>
+
             <div class="signup-button">
                 <button type="button" onclick="handleSignupButton()">가입하기</button>
             </div>
             <hr />
             <div class="buttons">
                 <button><a href="./login.html" style="text-decoration: none; color: black;"> 로그인</a> </button>
-                <button><a href="./reset_password.html" style="text-decoration: none; color: black;"> 비밀번호 재설정 </a></button>
+                <button><a href="./reset_password.html" style="text-decoration: none; color: black;"> 비밀번호 재설정
+                    </a></button>
             </div>
         </form>
     </div>
     </div>
 
+    <!-- JS -->
+    <script src="../static/js/base_url.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/signup.js"></script>
+    <script src="../static/js/right_sidebar.js"></script>
+    <script src="../static/js/left_sidebar.js"></script>
+    <script src="../static/js/nav.js"></script>
 
 </body>
+
 </html>

@@ -1,6 +1,3 @@
-const frontend_base_url = "http://127.0.0.1:5500"
-const backend_base_url = "http://127.0.0.1:8000"
-
 
 $(document).ready(function () {
     getArticles()
@@ -25,7 +22,7 @@ function getArticles() {
 
                 let temp_html = `<div class="card">
                                     <div class="image_box">
-                                        <a href="./article/detail.html?id=${article_id}">
+                                        <a href="${frontend_base_url}/article/detail.html?id=${article_id}">
                                             <img class="image"
                                                 src="${backend_base_url}${article_image}"
                                                 alt="">
@@ -34,12 +31,12 @@ function getArticles() {
                                     <div class="box_wrap">
                                         <div class="text_box">
                                             <div class="title">
-                                                <a href="./article/detail.html?id=${article_id}">
+                                                <a href="${frontend_base_url}/article/detail.html?id=${article_id}">
                                                     ${article_title}
                                                 </a>
                                             </div>
                                             <div class="author">
-                                                <a href="./user/profile.html?id=${article_author.id}">
+                                                <a href="${frontend_base_url}/user/profile.html?user_id=${article_author.id}">
                                                     ${article_author.nickname}
                                                 </a>
                                             </div>
