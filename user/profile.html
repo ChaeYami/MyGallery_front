@@ -6,22 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Gallery | Profile</title>
-    
+
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-   
+
     <!-- css -->
     <link href="../static/css/base.css" rel="stylesheet">
     <link href="../static/css/profile.css" rel="stylesheet">
 
 
-    <!-- JS -->
-    <script src="../static/js/index.js"></script>
-    <script src="../static/js/right_sidebar.js"></script>
-    <script src="../static/js/left_sidebar.js"></script>
-    <script src="../static/js/profile.js"></script>
-    <script src="../static/js/nav.js"></script>
 
 </head>
 
@@ -31,17 +25,21 @@
 
     <div id="left-sidebar"></div>
     <div id="right-sidebar"></div>
-    
-    <div id="profile-wrap">
 
-        <div id="delete-account" style="display: none;">
-            <button type="button" onclick="toggleDeleteForm()">회원탈퇴</button>
-            <form id="delete-form" style="display: none" ;>
-                <label for=" password">비밀번호:</label>
-                <input type="password" id="password" name="password">
-                <button type="button" onclick="deactivateAccount()">탈퇴</button>
-            </form>
+    <div id="profile-wrap">
+        <button type="button" onclick="toggleOwnerSection()" id="owner-section-btn" style="display: none;"><img src="../static/img/menu.png" alt=""></button>
+        <div id="owner-section" style="display: none;">
+            <div id="delete-account">
+                <button type="button" onclick="toggleDeleteForm()">회원탈퇴</button>
+                <form id="delete-form" style="display: none" ;>
+                    <label for="password">비밀번호:</label>
+                    <input type="password" id="password" name="password">
+                    <button type="button" onclick="deactivateAccount()">탈퇴</button>
+                </form>
+            </div>
+            <div>point : <span id="point"></span></div>
         </div>
+
 
         <div id="profile-info">
             <img id="profile_img" src="" class="card-img-top" alt="...">
@@ -66,15 +64,30 @@
 
         </div>
 
-        
+
 
         <div>
-            <div id="article-list"></div>
-            <!-- 글목록 영역 -->
+            <section class="Main">
+                <div id="article-list" class="grid">
+                    
+
+                    <!-- 글목록 영역 -->
+
+                </div>
+            </section>
             <!-- <img class="article-list-image" -->
 
         </div>
     </div>
+
+    <!-- JS -->
+    <script src="../static/js/base_url.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/right_sidebar.js"></script>
+    <script src="../static/js/left_sidebar.js"></script>
+    <script src="../static/js/profile.js"></script>
+    <script src="../static/js/nav.js"></script>
+
 </body>
 
 </html>
