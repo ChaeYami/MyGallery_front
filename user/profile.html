@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Gallery | Profile</title>
-    
+
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-   
+
     <!-- css -->
     <link href="../static/css/base.css" rel="stylesheet">
     <link href="../static/css/profile.css" rel="stylesheet">
@@ -31,7 +31,7 @@
 
     <div id="left-sidebar"></div>
     <div id="right-sidebar"></div>
-    
+
     <div id="profile-wrap">
 
         <div id="delete-account" style="display: none;">
@@ -52,8 +52,8 @@
 
                 <div>
                     게시물 <a id="article-count"></a>
-                    | 팔로워 <a href="팔로워목록" id="followers-count"></a>
-                    | 팔로잉 <a href="팔로잉목록" id="following-count"></a>
+                    | <a href="#" id="followers-count" onclick="openFollowers()"></a>
+                    | <a href="#" id="following-count" onclick="openFollowings()"></a>
                 </div>
 
                 <p id="edit-account" style="display: none;">
@@ -66,7 +66,7 @@
 
         </div>
 
-        
+
 
         <div>
             <div id="article-list"></div>
@@ -75,6 +75,29 @@
 
         </div>
     </div>
+
+
+    <!--모달 팝업-->
+    <div class="popup-wrap" id="follower_popup">
+        <div class="popup">
+            <div class="popup-body">
+                <button type="button" class="close_popup_btn" onclick="closeFollowers()"></button>
+                <iframe src="#" id="follower_popup_iframe" class="iframe"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!--모달 팝업-->
+    <div class="popup-wrap" id="following_popup">
+        <div class="popup">
+            <div class="popup-body">
+                <button type="button" class="close_popup_btn" onclick="closeFollowings()"></button>
+                <iframe src="#" id="following_popup_iframe" class="iframe"></iframe>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
