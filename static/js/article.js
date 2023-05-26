@@ -9,7 +9,7 @@ $(document).ready(async function () {
 
   // 이미지 띄우기, 아직 업로드X
   $('#image-input').change(async function () {
-    var change_id = $('#model-select').val()
+    var change_id = $('#model-select').val();
     var file = $('#image-input').prop('files')[0];
 
     // 파일 크기 제한 (단위: 바이트)
