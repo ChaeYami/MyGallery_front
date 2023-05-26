@@ -48,9 +48,10 @@ async function Profile(user_id) {
     const user_id_int = parseInt(user_id)
     const profile_img_url = `${backend_base_url}${response_json.profile_img}`;
     const profile_img_element = document.getElementById("profile_img")
-
+    
     profile_img_element.setAttribute("src", profile_img_url)
 
+    document.getElementById('point').innerText = response_json.point + 'p'
     document.getElementById('nickname').innerText = response_json.nickname
     document.getElementById('introduce').innerText = response_json.introduce
 
@@ -62,7 +63,7 @@ async function Profile(user_id) {
         // 해당 프로필 페이지가 로그인된 사용자의 것일 때 - 수정,탈퇴 보이기
         document.getElementById('edit-account').style.display = "block";
 
-        document.getElementById('delete-account').style.display = "block";
+        document.getElementById('owner-section-btn').style.display = "block";
         document.getElementById('follow-button').style.display = "none";
 
     } else {
@@ -101,6 +102,16 @@ function toggleDeleteForm() {
     }
 }
 
+function toggleOwnerSection() {
+    var ownerSection = document.getElementById("owner-section");
+    if (ownerSection.style.display === "none") {
+        ownerSection.style.display = "flex";
+    } else {
+        ownerSection.style.display = "none";
+    }
+}
+
+
 // 회원탈퇴
 async function deactivateAccount() {
     const delConfirm = confirm("정말 계정 비활성화를 진행하시겠습니까?")
@@ -138,9 +149,14 @@ async function loadArticles(user_id) {
         articles.forEach((article) => {
             const articleElement = document.createElement('div');
             articleElement.innerHTML = `
-            <a href="../article/detail.html?id=${article.id}">
-                <img class="article-list-image" src="${backend_base_url}${article.changed_image}" alt="">
-                </a>
+            <div class="CardContainer">
+                        
+                            <a href="../article/detail.html?id=${article.id}">
+                                <img class="CardBox article-list-image" src="${backend_base_url}${article.changed_image}"
+                                    alt="">
+                            </a>
+                        
+                    </div>
             `;
             articleListContainer.appendChild(articleElement);
         });
