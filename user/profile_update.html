@@ -29,7 +29,8 @@
              <form action="/profile" method="post" enctype="multipart/form-data">
         <div>
             <label for="profile_img">프로필 사진:</label>
-            <input type="file" id="profile_img" name="profile_img">
+            <input type="file" id="profile_img" name="profile_img" onchange="previewImage()">
+            <img id="profile_preview" src="" alt="프로필 이미지 미리보기">
         </div>
         <div>
             <label for="nickname">닉네임</label>
