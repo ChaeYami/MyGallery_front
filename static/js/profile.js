@@ -49,7 +49,7 @@ async function Profile(user_id) {
     
     profile_img_element.setAttribute("src", profile_img_url)
 
-    document.getElementById('point').innerText = response_json.point
+    document.getElementById('point').innerText = response_json.point + 'p'
     document.getElementById('nickname').innerText = response_json.nickname
     document.getElementById('introduce').innerText = response_json.introduce
 

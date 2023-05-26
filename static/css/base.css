@@ -49,6 +49,10 @@ a {
     list-style: none;
     margin: 20px;
 }
+.sidebar li a{
+    align-items: center;
+    display: flex;
+}
 
 .sidebar ul {
     padding-inline-start: 0px;

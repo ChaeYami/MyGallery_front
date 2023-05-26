@@ -24,7 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 let logoutBtn = document.createElement("a");
                 logoutBtn.setAttribute("class", "nav-link btn");
-                logoutBtn.innerText = "로그아웃";
+                logoutBtn.innerHTML = `
+                <img src="../static/img/logout.png" alt="" style="width:40px;">&nbsp로그아웃
+                `;
                 logoutBtn.setAttribute("href", "#");
 
                 logoutBtn.setAttribute("onclick", "confirmLogout()");
