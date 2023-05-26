@@ -31,9 +31,10 @@ $(document).ready(async function () {
       // FormData 객체 생성
       var formData = new FormData();
       formData.append('image', file);
+      formData.append('change_id', change_id);
 
       // api.js와 연합
-      const response = await TransForm(change_id, formData)
+      const response = await TransForm(formData)
 
       $('#image-preview').attr('src', `${backend_base_url}${response.image_url}`);
     } else if (change_id === undefined) {
@@ -55,9 +56,10 @@ $(document).ready(async function () {
       // FormData 객체 생성
       var formData = new FormData();
       formData.append('image', file);
+      formData.append('change_id', change_id);
 
       // api.js와 연합
-      const response = await TransForm(change_id, formData)
+      const response = await TransForm(formData)
 
       $('#image-preview').attr('src', `${backend_base_url}${response.image_url}`);
     } else if (change_id === undefined) {

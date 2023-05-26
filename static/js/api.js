@@ -8,10 +8,10 @@ $(document).ready(async function () {
 
 ////게시글 작성 수정////////////////////////////////////////////
 //이미지변환 post
-async function TransForm(change_id, formData) {
+async function TransForm(formData) {
     try {
         const response = await $.ajax({
-            url: `${backend_base_url}/change/${change_id}/`,
+            url: `${backend_base_url}/change/`,
             type: 'POST',
             data: formData,
             processData: false,
