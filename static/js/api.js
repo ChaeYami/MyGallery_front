@@ -33,36 +33,29 @@ async function TransForm(formData) {
     }
 };
 
-//게시글 post
+// 게시글 post
 function PostArticle() {
-    // e.preventDefault(); // 폼의 기본 동작을 중지
-
     const title = $('#title-input').val();
     const content = $('#content-input').val();
     const image = $('#image-input')[0].files[0];
     const trans_image = $('#image-preview').attr('src');
 
-    console.log(title)
+    console.log(title);
 
     if (title == '' || content == '' || image == null || trans_image == null) {
-        alert("입력해 주세요.")
-        return
+        alert("입력해 주세요.");
+        return;
     }
 
-    // const token = localStorage.getItem("access")
     const formData = new FormData();
 
     formData.append("title", title);
     formData.append("content", content);
     formData.append("uploaded_image", image);
-    // formData.append("changed_image", trans_image);
-    formData.append("changed_image", image);
 
-    // 잘 들어 갔는지 테스트
-    console.log(formData.get("title"))
-    console.log(formData.get("content"))
-    console.log(formData.get("uploaded_image"))
-    console.log(formData.get("changed_image"))
+    // 이미지 데이터를 File 객체로 변환하여 추가
+    var imageFile = dataURLtoFile(trans_image, 'changed_image.png');
+    formData.append("changed_image", imageFile);
 
     $.ajax({
         url: `${backend_base_url}/article/`,
@@ -72,20 +65,31 @@ function PostArticle() {
         contentType: false,
         headers: {
             Authorization: `Bearer ${localStorage.getItem('access')}`
-            // Authorization: `Bearer ${token}`
         },
         success: function (response) {
             alert("글 작성 완료");
-            window.location.href = `${frontend_base_url}/index.html`
+            window.location.href = `${frontend_base_url}/index.html`;
         },
         error: function (error) {
             console.log("Error: " + error);
-            alert('오류 입니다.');
+            alert('오류입니다.');
             // window.location.href = `${frontend_base_url}/404.html`
         }
-
     });
-};
+}
+
+// Data URL을 File 객체로 변환하는 함수
+function dataURLtoFile(dataURL, filename) {
+    var arr = dataURL.split(',');
+    var mime = arr[0].match(/:(.*?);/)[1];
+    var bstr = atob(arr[1]);
+    var n = bstr.length;
+    var u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, { type: mime });
+}
 
 
 //get

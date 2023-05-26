@@ -36,7 +36,17 @@ $(document).ready(async function () {
       // api.js와 연합
       const response = await TransForm(formData)
 
-      $('#image-preview').attr('src', `${backend_base_url}${response.image_url}`);
+      // 이미지 프리뷰를 생성하여 표시
+      if (response.image_data) {
+        var imageData = response.image_data;
+        var imageExtension = file.type.split('/')[1]; // 이미지 파일의 확장자 추출
+        var imageSrc = `data:image/${imageExtension};base64,${imageData}`;
+        $('#image-preview').attr('src', imageSrc);
+      } else {
+        console.log("Error: Image data not found in response");
+      }
+
+      // $('#image-preview').attr('src', `${backend_base_url}${response.image_url}`);
     } else if (change_id === undefined) {
       var reader = new FileReader();
       reader.onload = function (e) {
@@ -61,7 +71,20 @@ $(document).ready(async function () {
       // api.js와 연합
       const response = await TransForm(formData)
 
-      $('#image-preview').attr('src', `${backend_base_url}${response.image_url}`);
+      // console.log(response);
+      // console.log(response.image_data);
+
+      // 이미지 프리뷰를 생성하여 표시
+      if (response.image_data) {
+        var imageData = response.image_data;
+        var imageExtension = file.type.split('/')[1]; // 이미지 파일의 확장자 추출
+        var imageSrc = `data:image/${imageExtension};base64,${imageData}`;
+        $('#image-preview').attr('src', imageSrc);
+      } else {
+        console.log("Error: Image data not found in response");
+      }
+
+      // $('#image-preview').attr('src', `${backend_base_url}${response.image_url}`);
     } else if (change_id === undefined) {
       var reader = new FileReader();
       reader.onload = function (e) {
