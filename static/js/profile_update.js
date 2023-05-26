@@ -9,6 +9,7 @@ window.onload = () => {
     existingProfile(user_id)
 }
 
+// 입력폼에 기존 값 넣기
 async function existingProfile(){
     const response = await fetch(`${backend_base_url}/user/${user_id}/`,{
         headers: {
@@ -21,24 +22,55 @@ async function existingProfile(){
 
     document.getElementById('nickname').value = response_json.nickname
     document.getElementById('introduce').value = response_json.introduce
+
+    // 프로필 이미지 미리보기
+    const profileImg = document.getElementById('profile_img');
+    if (response_json.profile_img) {
+        const imageUrl = `${backend_base_url}${response_json.profile_img}`;
+        document.getElementById('profile_preview').src = imageUrl;
+    }
     
 }
 
+// 이미지 미리보기
+function previewImage() {
+    const fileInput = document.getElementById('profile_img');
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = function () {
+        const previewImg = document.getElementById('profile_preview');
+        previewImg.src = reader.result;
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+}
+
+// 수정하기 버튼 눌렀을 때
 async function updateProfile(){
     const nickname = document.getElementById('nickname').value
     const introduce = document.getElementById('introduce').value
+    const fileInput = document.getElementById('profile_img');
+    const file = fileInput.files[0];
+    const formData = new FormData();
+
+    formData.append('nickname', nickname);
+    formData.append('introduce', introduce);
+
+    if (file) {
+        formData.append('profile_img', file);
+    }
 
     const response = await fetch(`${backend_base_url}/user/${user_id}/`, {
         headers: {
             "Authorization": "Bearer " + token,
-            'content-type': 'application/json',
         },
         method: 'PATCH',
-        body: JSON.stringify({
-            "nickname": nickname,
-            "introduce": introduce
-        })
-    })
+        body: formData
+        });
+        
     if (response.status == 200) {
         alert("수정 완료")
         window.location.replace(`../user/profile.html?user_id=${user_id}`)
