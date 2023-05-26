@@ -12,8 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 const payload = localStorage.getItem("payload");
                 const payload_parse = JSON.parse(payload);
-                intro.innerText = `${payload_parse.nickname}`;
-                intro.href = `${frontend_base_url}/user/profile.html?user_id=` + payload_parse.user_id;
+                intro.innerHTML = `
+                <a href="${frontend_base_url}/user/profile.html?user_id=${payload_parse.user_id}">
+                <span><img class="profile-img" src="${backend_base_url}/media/${payload_parse.profile_img}" alt=""></span>
+                ${payload_parse.nickname}</a>
+            `
 
                 let navbarRight = document.getElementById("navbar-right");
                 let newLi = document.createElement("li");
@@ -21,7 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 let logoutBtn = document.createElement("a");
                 logoutBtn.setAttribute("class", "nav-link btn");
-                logoutBtn.innerText = "로그아웃";
+                logoutBtn.innerHTML = `
+                <img src="../static/img/logout.png" alt="" style="width:40px;">&nbsp로그아웃
+                `;
                 logoutBtn.setAttribute("href", "#");
 
                 logoutBtn.setAttribute("onclick", "confirmLogout()");
@@ -49,3 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 })
 
+//로그아웃
+async function handlelogout() {
+    localStorage.removeItem("access")
+    localStorage.removeItem("refresh")
+    localStorage.removeItem("payload")
+}

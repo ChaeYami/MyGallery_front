@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // 네비바를 삽입할 위치
-    var navbarContainer = document.querySelector("#navbar-container");
+    const navbarContainer = document.querySelector("#navbar-container");
 
     if (navbarContainer) {
         // base-nav.html 파일을 가져와서 네비게이션바 위치에 삽입
