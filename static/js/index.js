@@ -68,17 +68,4 @@ function getArticles() {
 }
 
 
-//로그아웃
-function confirmLogout() {
-    if (confirm("로그아웃하시겠습니까?")) {
-        handleLogout();
-    }
-}
-async function handleLogout() {
-    localStorage.removeItem("access")
-    localStorage.removeItem("refresh")
-    localStorage.removeItem("payload")
-    location.replace('../index.html')
-}
-
 
