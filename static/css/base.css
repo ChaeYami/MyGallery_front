@@ -73,7 +73,7 @@ a {
 }
 
 /* 미디어 쿼리 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     #left-sidebar {
       transform: translateX(-100%);
     }
