@@ -27,7 +27,7 @@ async function TransForm(formData) {
     } catch (error) {
         console.log("Error: " + error);
         alert('오류 입니다.');
-        // window.location.href = `${frontend_base_url}/404.html`
+        // window.location.href = `${frontend_base_url}/article/404.html`
         return error;
     }
 };
@@ -38,6 +38,7 @@ function PostArticle() {
     const content = $('#content-input').val();
     const image = $('#image-input')[0].files[0];
     const trans_image = $('#image-preview').attr('src');
+    const change_id = $('#model-select').val()
 
     console.log(title);
 
@@ -51,6 +52,7 @@ function PostArticle() {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("uploaded_image", image);
+    formData.append("change_id", change_id);
 
     // 이미지 데이터를 File 객체로 변환하여 추가
     var imageFile = dataURLtoFile(trans_image, 'changed_image.png');
@@ -72,10 +74,10 @@ function PostArticle() {
         error: function (error) {
             console.log("Error: " + error);
             alert('오류입니다.');
-            // window.location.href = `${frontend_base_url}/404.html`
+            // window.location.href = `${frontend_base_url}/article/404.html`
         }
     });
-}
+};
 
 // Data URL을 File 객체로 변환하는 함수
 function dataURLtoFile(dataURL, filename) {
@@ -88,8 +90,26 @@ function dataURLtoFile(dataURL, filename) {
         u8arr[n] = bstr.charCodeAt(n);
     }
     return new File([u8arr], filename, { type: mime });
-}
+};
 
+//게시글 get
+async function GetArticle(article_id) {
+    try {
+        const response = await $.ajax({
+            url: `${backend_base_url}/article/${article_id}/`,
+            method: 'GET'
+        });
+        console.log('response');
+        console.log(response);
+        console.log('response.id');
+        console.log(response.id);
+        // 응답 데이터 처리
+        return response; // 결과 반환
 
-//get
+    } catch (error) {
+        console.error(error);
+        // 실패 시 처리
+        window.location.href = `${frontend_base_url}/article/404.html`
+    }
+};
 //put

@@ -50,8 +50,8 @@
 
                 <div>
                     게시물 <a id="article-count"></a>
-                    | 팔로워 <a href="팔로워목록" id="followers-count"></a>
-                    | 팔로잉 <a href="팔로잉목록" id="following-count"></a>
+                    | <a href="#" id="followers-count" onclick="openFollowers()"></a>
+                    | <a href="#" id="following-count" onclick="openFollowings()"></a>
                 </div>
 
                 <p id="edit-account" style="display: none;">
@@ -80,6 +80,29 @@
         </div>
     </div>
 
+
+
+    <!--팔로워 모달 팝업-->
+    <div class="popup-wrap" id="follower_popup">
+        <div class="popup">
+            <div class="popup-body">
+                <button type="button" class="close_popup_btn" onclick="closeFollowers()"></button>
+                <iframe src="#" id="follower_popup_iframe" class="iframe"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!--팔로잉 모달 팝업-->
+    <div class="popup-wrap" id="following_popup">
+        <div class="popup">
+            <div class="popup-body">
+                <button type="button" class="close_popup_btn" onclick="closeFollowings()"></button>
+                <iframe src="#" id="following_popup_iframe" class="iframe"></iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- JS -->
     <script src="../static/js/base_url.js"></script>
     <script src="../static/js/index.js"></script>
@@ -87,6 +110,7 @@
     <script src="../static/js/left_sidebar.js"></script>
     <script src="../static/js/profile.js"></script>
     <script src="../static/js/nav.js"></script>
+
 
 </body>
 
