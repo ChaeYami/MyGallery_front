@@ -139,9 +139,7 @@ async function loadHeartArticles(user_id) {
             const articleElement = document.createElement('div');
             articleElement.innerHTML = `
             <a href="../article/detail.html?id=${article.id}">
-                <h3>${article.title}</h3>
                 <img class="article-list-image" src="${backend_base_url}${article.changed_image}" alt="">
-                <p>${article.content}</p>
                 </a>
             `;
             articleListContainer.appendChild(articleElement);
