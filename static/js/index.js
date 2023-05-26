@@ -15,7 +15,6 @@ function getArticles() {
         type: "GET",
         dataType: "json",
         success: function (response) {
-            // console.log(response[2]['hearts'].length)
             const rows = response;
             for (let i = 0; i < rows.length; i++) {
                 let article_id = rows[i]['id']
