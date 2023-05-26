@@ -26,7 +26,7 @@ a {
     flex-flow: column;
     z-index: 1;
 }
-#right-sidebar img{
+#left-sidebar img{
     width: 40px;
 }
 #left-sidebar {
