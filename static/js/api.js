@@ -145,7 +145,7 @@ function PatchArticle() {
         },
         success: function (response) {
             alert("글 수정 완료");
-            window.location.href = `${frontend_base_url}/index.html`;
+            window.location.href = `${frontend_base_url}/article/detail.html?id=${article_id}`;
         },
         error: function (error) {
             console.log("Error: " + error);

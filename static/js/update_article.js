@@ -9,9 +9,10 @@ $(document).ready(async function () {
 
         const token = localStorage.getItem("access");
         const me_id = payload_parse.user_id;
-
+        console.log(me_id)
+        console.log(response.user.pk)
         // 접속 유저와 작성 유저가 같다면?
-        if (me_id != response.user.id) {
+        if (me_id != response.user.pk) {
             alert('권한이 없습니다!')
             window.location.href = `${frontend_base_url}/index.html`;
         }

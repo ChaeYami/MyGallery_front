@@ -1,5 +1,9 @@
 body {
     background-image: linear-gradient(to left, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #fdfdff, #fafbfe, #f6f9fe, #ecf5fc, #e0f2f8, #d5f0f0, #ceece5);
+
+    @media screen and (max-width:800px) {
+        background-image: none;
+    }
 }
 
 .detail-container {
@@ -11,12 +15,14 @@ body {
     margin: 80px auto;
     width: 70vw;
     justify-content: space-between;
+
     @media screen and (max-width:800px) {
         flex-direction: column;
+        align-items: stretch;
+
+
     }
 }
-
-
 
 #article-img {
     display: flex;
@@ -25,12 +31,22 @@ body {
     border-radius: 10px;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width:800px) {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px
+    }
 }
 
 #article-img img {
     max-width: 500px;
     width: 100%;
-    
+
 }
 
 #author-img {
@@ -42,6 +58,10 @@ body {
 
 .detail-section {
     width: 35%;
+
+    @media screen and (max-width:800px) {
+        width: 100%
+    }
 }
 
 .author-section {
@@ -67,6 +87,8 @@ body {
     background-color: #e4f3ff93;
     padding: 30px 10px;
     border-radius: 5px;
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 
 .buttons-section {
@@ -88,10 +110,11 @@ body {
     background-color: #e5def1;
 }
 
-#comment-list{
+#comment-list {
     overflow: auto;
     height: 40vh;
 }
+
 #comment-area {
     display: flex;
     justify-content: space-between;
@@ -101,6 +124,10 @@ body {
 #comment {
     width: 18vw;
     padding: 5px;
+
+    @media screen and (max-width:800px) {
+        width: 55vw
+    }
 }
 
 #comment-area button {
@@ -119,16 +146,18 @@ body {
 
 }
 
-.comment-author{
+.comment-author {
     display: flex;
     align-items: center;
 }
-#comment-author-img{
+
+#comment-author-img {
     width: 30px;
     height: 30px;
     border-radius: 100%;
 
 }
+
 #comment-author-img img {
     width: inherit;
     height: inherit;
