@@ -16,7 +16,6 @@
     width: 20px;
 }
 #profile-info{
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,6 +50,15 @@
 .nickname-section{
     display: flex;
 }
+.nickname-section button{
+    width: 80px;
+    height: 25px;
+    font-size: 15px;
+    background-color: #ffffffb2;
+    border: none;
+    border-radius: 5px;
+}
+
 #follow-button{
     margin: 0 10px;
 }

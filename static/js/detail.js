@@ -16,7 +16,8 @@ async function ArticleDetail() {
     })
 
     response_json = await response.json()
-
+    const author_img = document.getElementById('author-img');
+    const author_img_url = `${backend_base_url}/media/${response_json.user.profile_img}`;
     const author = document.getElementById('author');
     const title = document.getElementById('title');
     const content = document.getElementById('content');
@@ -27,8 +28,9 @@ async function ArticleDetail() {
     const deleteBtn = document.getElementById('delete-btn');
 
     const img = document.getElementById('article-img');
-
-    author.innerHTML = response_json.user.nickname
+    
+    author_img.setAttribute("src", author_img_url)
+    author.innerHTML = `&nbsp${response_json.user.nickname}`
     title.innerText = response_json.title
     content.innerText = response_json.content
     created_at.innerText = response_json.created_at
@@ -37,11 +39,11 @@ async function ArticleDetail() {
     img.innerHTML = `<img class="article-list-image" src="${backend_base_url}${response_json.changed_image}" alt="">`
 
     if (response_json.user.pk === user_id) {
-        editBtn.style.display = 'block';    
-        deleteBtn.style.display = 'block';  
+        editBtn.style.display = 'block';
+        deleteBtn.style.display = 'block';
     } else {
-        editBtn.style.display = 'none';   
-        deleteBtn.style.display = 'none'; 
+        editBtn.style.display = 'none';
+        deleteBtn.style.display = 'none';
     }
 }
 
@@ -105,40 +107,30 @@ async function save_comment() {
 async function loadComments() {
     const response = await fetch(`${backend_base_url}/article/${article_id}/comment/`);
     const comments = await response.json();
-
-
-
-
     comments.forEach((comment) => {
         const commentList = document.getElementById('comment-list');
+
         commentList.insertAdjacentHTML('beforeend', `
-        
-        <div>
-        
-                <a href = "http://127.0.0.1:5500/user/profile.html?user_id=${comment.user.pk}">${comment.user.nickname}</a>
-            </div>
-            <div id="comment-${comment.id}" style="max-width: 1000px;">
-                <div>
-                    
-                    <div>
-                        <!-- 유저 프로필 사진 -->
-
+            <div class="nth-comment">
+                <a class = "comment-author" href="${frontend_base_url}/user/profile.html?user_id=${comment.user.pk}">
+                    <!-- 유저 프로필 사진 -->
+                    <span class="profile-img" id="comment-author-img">
+                        <img src="${backend_base_url}/media/${comment.user.profile_img}" alt="...">
+                    </span>
+                    &nbsp${comment.user.nickname}
+                </a>
+                <!-- 댓글 내용 입력-->
+                <div id="comment-section">
+                    <div id="comment-body">
+                        <pid="comment-content-${comment.id}">${comment.comment}</p>
+            
                     </div>
-                    <!-- 댓글 제목과 내용 입력-->
-                    <div id="comment-section">
-                        <div id="comment-body">
-                            <pid="comment-content-${comment.id}">${comment.comment}</p>
-
-                        </div>
-                        <div id="comment-buttons-section">
-    
-                            <a href="#" onclick = "CommentDelete(${comment.id})">댓글삭제</a>
-                        </div>
+                    <div id="comment-info">
                         <div id="comment-created-at">${comment.comment_created_at}</div>
+                        <a href="#" onclick="CommentDelete(${comment.id})">댓글삭제</a>
                     </div>
                 </div>
             </div>
-        
         `);
     });
 }
@@ -211,10 +203,10 @@ async function isHearted() {
         const ids = articles.map(article => parseInt(article.id));
         const intarticle_id = parseInt(article_id)
         const isArticleExists = ids.includes(intarticle_id);
-        if(isArticleExists){
-            document.getElementById('heart-icon').innerText  ='❤️'
-        }else{
-            document.getElementById('heart-icon').innerText= '♡'
+        if (isArticleExists) {
+            document.getElementById('heart-icon').innerText = '❤️'
+        } else {
+            document.getElementById('heart-icon').innerText = '♡'
 
         }
     } else {
