@@ -69,7 +69,19 @@ a {
     padding-inline-start: 0px;
 }
 
-.navbar {
+#sidebar-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+#sidebar-profile .profile-img{
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    border-radius: 100%;
+}
+.navbar{
+
     height: 50px;
     width: 100%;
     position: fixed;

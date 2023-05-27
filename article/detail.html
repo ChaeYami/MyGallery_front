@@ -16,61 +16,67 @@
     <link href="../static/css/detail.css" rel="stylesheet">
 
 
-    
+
 
 </head>
 
 <body>
-<!-- 상단 네비게이션바 -->
-<div id="navbar-container"></div>
+    <!-- 상단 네비게이션바 -->
+    <div id="navbar-container"></div>
 
-<div id="left-sidebar"></div>
-<div id="right-sidebar"></div>
+    <div id="left-sidebar"></div>
 
 
     <div class="detail-container">
 
         <div id="article-img"></div>
         <!-- img class="article-list-image" -->
-
-        <div>
-            <div class="author-section">
-                <span id="author"></span>
-                <span id="created-at"></span>
-            </div>
-            <div class="article-section">
-                <div id="title"></div>
-                <div id="content"></div>
-            </div>
-            <div class="buttons-section">
-                <div id="heart-btn">
-                    <a href="#" id="heart-icon" onclick="ClickHeart()" style="text-decoration: none;">❤️</a>
-
-                    <span id="heart-count"></span>
-                </div>
-
-
-                <button id="edit-btn" onclick="redirectUpdatePage()">수정</button>
-                <button id="delete-btn" onclick="ArticleDelete()">삭제</button>
-            </div>
-        </div>
-
-
-        <!-- 댓글 작성 시작 -->
-        <div id="comment-area">
+        <div class="detail-section">
             <div>
-                <label for="comment" class="form-label">댓글 작성</label>
-                <textarea id="comment"></textarea>
+                <div class="author-section">
+                    <div>
+                        <span class="author-img">
+                            <img id="author-img" src="" alt="...">
+                        </span>
+                        <span id="author"></span>
+                    </div>
+                    <div>
+                        <span id="created-at"></span>
+                    </div>
+                </div>
+                <div class="article-section">
+                    <div id="title"></div>
+                    <div id="content"></div>
+                </div>
+                <div class="buttons-section">
+                    <div id="heart-btn">
+                        <a href="#" id="heart-icon" onclick="ClickHeart()" style="text-decoration: none;">❤️</a>
+
+                        <span id="heart-count"></span>
+                    </div>
+
+                    <div class="edit-n-del">
+                        <button id="edit-btn" onclick="redirectUpdatePage()">수정</button>
+                        <button id="delete-btn" onclick="ArticleDelete()">삭제</button>
+                    </div>
+                </div>
             </div>
-            <button type="button" onclick="save_comment()">등록</button>
-        </div>
-        <!-- 댓글 작성 끝 -->
-        <div id="comment-list">
 
 
-            <!-- 댓글 목록 자리 -->
+            <!-- 댓글 작성 시작 -->
+            <div id="comment-area">
+                <div>
+                    <textarea id="comment" placeholder="댓글 입력"></textarea>
+                </div>
+                <button type="button" onclick="save_comment()">등록</button>
+            </div>
+            <!-- 댓글 작성 끝 -->
+            <div id="comment-list">
 
 
+                <!-- 댓글 목록 자리 -->
+
+            </div>
         </div>
     </div>
     <!-- JS -->
@@ -83,3 +89,6 @@
 </body>
 
 </html>
+
+
+

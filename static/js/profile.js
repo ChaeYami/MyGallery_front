@@ -137,8 +137,10 @@ async function deactivateAccount() {
 }
 // 작성한 글 목록
 async function loadArticles(user_id) {
+
     $("#profile_article_list").removeClass("text_normal").addClass("text_bold");
     $("#profile_heart_list").removeClass("text_bold").addClass("text_normal");
+
     $('#article-list').empty()
 
     const response = await fetch(`${backend_base_url}/article/list/${user_id}`, {
@@ -150,6 +152,7 @@ async function loadArticles(user_id) {
         const articleListContainer = document.getElementById('article-list');
 
         articles.forEach((article) => {
+
             const articleElement = document.createElement('div');
             articleElement.innerHTML = `
             <div class="CardContainer">
@@ -170,8 +173,10 @@ async function loadArticles(user_id) {
 
 // 하트 누른 글 목록
 async function loadHeartArticles(user_id) {
+
     $("#profile_heart_list").removeClass("text_normal").addClass("text_bold");
     $("#profile_article_list").removeClass("text_bold").addClass("text_normal");
+
     $('#article-list').empty()
 
     const response = await fetch(`${backend_base_url}/article/hearts/${user_id}`, {
@@ -180,6 +185,7 @@ async function loadHeartArticles(user_id) {
 
     if (response.ok) {
         const articles = await response.json();
+        console.log(articles)
         const articleListContainer = document.getElementById('article-list');
         articles.forEach((article) => {
             const articleElement = document.createElement('div');
