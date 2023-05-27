@@ -201,7 +201,6 @@ async function isHearted() {
         const ids = articles.map(article => parseInt(article.id));
         const intarticle_id = parseInt(article_id)
         const isArticleExists = ids.includes(intarticle_id);
-        console.log(isArticleExists)
         if(isArticleExists){
             document.getElementById('heart-icon').innerText  ='❤️'
         }else{
