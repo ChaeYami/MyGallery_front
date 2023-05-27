@@ -39,7 +39,6 @@ async function handleFollow(user_id) {
 
 
 async function Profile(user_id) {
-
     const response = await fetch(`${backend_base_url}/user/${user_id}`, {
         method: 'GET',
     })
@@ -58,7 +57,7 @@ async function Profile(user_id) {
 
     document.getElementById('followers-count').innerText = `팔로워 ${response_json.followers_count}`;
     document.getElementById('following-count').innerText = `팔로잉 ${response_json.following_count}`;
-    document.getElementById('list-switch').innerHTML = `<a class="text_bold" href="#" onclick ="loadArticles(${user_id})">게시물</a> <a class="text_normal" href="#" onclick="loadHeartArticles(${user_id})">좋아요</a>`;
+    document.getElementById('list-switch').innerHTML = `<a id="profile_article_list" class="text_bold" href="#" onclick ="loadArticles(${user_id})">게시물</a> <a id="profile_heart_list" class="text_normal" href="#" onclick="loadHeartArticles(${user_id})">좋아요</a>`;
 
     if (user_id_int === logined_id) {
         // 해당 프로필 페이지가 로그인된 사용자의 것일 때 - 수정,탈퇴 보이기
@@ -138,6 +137,10 @@ async function deactivateAccount() {
 }
 // 작성한 글 목록
 async function loadArticles(user_id) {
+
+    $("#profile_article_list").removeClass("text_normal").addClass("text_bold");
+    $("#profile_heart_list").removeClass("text_bold").addClass("text_normal");
+
     $('#article-list').empty()
 
     const response = await fetch(`${backend_base_url}/article/list/${user_id}`, {
@@ -170,6 +173,10 @@ async function loadArticles(user_id) {
 
 // 하트 누른 글 목록
 async function loadHeartArticles(user_id) {
+
+    $("#profile_heart_list").removeClass("text_normal").addClass("text_bold");
+    $("#profile_article_list").removeClass("text_bold").addClass("text_normal");
+
     $('#article-list').empty()
 
     const response = await fetch(`${backend_base_url}/article/hearts/${user_id}`, {
@@ -180,13 +187,11 @@ async function loadHeartArticles(user_id) {
         const articles = await response.json();
         console.log(articles)
         const articleListContainer = document.getElementById('article-list');
-
         articles.forEach((article) => {
             const articleElement = document.createElement('div');
-
             articleElement.innerHTML = `
             <div class="CardContainer">
-                        
+
                             <a href="../article/detail.html?id=${article.id}">
                                 <img class="CardBox article-list-image" src="${backend_base_url}${article.changed_image}"
                                     alt="">
