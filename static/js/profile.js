@@ -2,8 +2,6 @@ window.onload = () => {
     const urlParams = new URLSearchParams(window.location.search).get('user_id');
     Profile(urlParams);
     loadArticles(urlParams);
-    $('#follower_popup_iframe').attr('src', `${frontend_base_url}/user/follower.html?user_id=${urlParams}`);
-    $('#following_popup_iframe').attr('src', `${frontend_base_url}/user/following.html?user_id=${urlParams}`);
 }
 
 
@@ -48,7 +46,7 @@ async function Profile(user_id) {
     const user_id_int = parseInt(user_id)
     const profile_img_url = `${backend_base_url}${response_json.profile_img}`;
     const profile_img_element = document.getElementById("profile_img")
-    
+
     profile_img_element.setAttribute("src", profile_img_url)
 
     document.getElementById('point').innerText = response_json.point + 'p'
@@ -191,6 +189,7 @@ async function loadArticles(user_id) {
 
 // 팔로워 목록 열기
 function openFollowers() {
+    $('#follower_popup_iframe').attr('src', `${frontend_base_url}/user/follower.html?user_id=${user_id}`);
     $('html, body').css({
         'overflow': 'hidden'
     });
@@ -201,6 +200,7 @@ function openFollowers() {
 
 // 팔로잉 목록 열기
 function openFollowings() {
+    $('#following_popup_iframe').attr('src', `${frontend_base_url}/user/following.html?user_id=${user_id}`);
     $('html, body').css({
         'overflow': 'hidden'
     });
