@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 leftSidebarContainer.innerHTML = data;
 
-                
+
                 const payload = localStorage.getItem("payload");
                 const payload_parse = JSON.parse(payload);
                 intro.innerHTML = `
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 newLi.appendChild(logoutBtn);
 
                 navbarRight.appendChild(newLi);
-            
+
 
                 let loginbtn = document.getElementById("login-btn");
                 let signupbtn = document.getElementById("signup-btn");
@@ -43,14 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 let createbtn = document.getElementById('create-article')
                 if (loginbtn) {
                     loginbtn.style.display = "none";
-                    createbtn.style.display="block";
+                    createbtn.style.display = "block";
                     signupbtn.style.display = "none";
                 }
             })
             .catch(error => {
                 console.error("사이드바를 불러오는데 오류가 발생했습니다.", error);
             });
-    } 
+    }
 
 })
 
@@ -66,4 +66,3 @@ async function handleLogout() {
     localStorage.removeItem("payload")
     location.replace('../index.html')
 }
-
