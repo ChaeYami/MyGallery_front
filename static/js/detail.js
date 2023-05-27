@@ -24,8 +24,8 @@ async function ArticleDetail() {
     // const updated_at = document.getElementById('updated-at');
 
     const img = document.getElementById('article-img');
-
-    author.innerHTML = response_json.user
+    console.log(response_json)
+    author.innerHTML = response_json.user.nickname
     title.innerText = response_json.title
     content.innerText = response_json.content
     created_at.innerText = response_json.created_at
