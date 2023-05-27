@@ -139,6 +139,8 @@ async function deactivateAccount() {
 async function loadArticles(user_id) {
     $("#profile_article_list").removeClass("text_normal").addClass("text_bold");
     $("#profile_heart_list").removeClass("text_bold").addClass("text_normal");
+    $('#article-list').empty()
+
     const response = await fetch(`${backend_base_url}/article/list/${user_id}`, {
         method: 'GET',
     });
@@ -148,8 +150,6 @@ async function loadArticles(user_id) {
         const articleListContainer = document.getElementById('article-list');
 
         articles.forEach((article) => {
-            $('#article-list').empty()
-
             const articleElement = document.createElement('div');
             articleElement.innerHTML = `
             <div class="CardContainer">
@@ -172,6 +172,8 @@ async function loadArticles(user_id) {
 async function loadHeartArticles(user_id) {
     $("#profile_heart_list").removeClass("text_normal").addClass("text_bold");
     $("#profile_article_list").removeClass("text_bold").addClass("text_normal");
+    $('#article-list').empty()
+
     const response = await fetch(`${backend_base_url}/article/hearts/${user_id}`, {
         method: 'GET',
     });
@@ -179,14 +181,11 @@ async function loadHeartArticles(user_id) {
     if (response.ok) {
         const articles = await response.json();
         const articleListContainer = document.getElementById('article-list');
-
         articles.forEach((article) => {
-            $('#article-list').empty()
             const articleElement = document.createElement('div');
-
             articleElement.innerHTML = `
             <div class="CardContainer">
-                        
+
                             <a href="../article/detail.html?id=${article.id}">
                                 <img class="CardBox article-list-image" src="${backend_base_url}${article.changed_image}"
                                     alt="">
