@@ -26,10 +26,13 @@ async function handleFollow(user_id) {
 
     })
     if (response.status === 200) {
-        alert(response)
+        alert("팔로우 완료")
+        window.location.reload()
+    } else if (response.status === 205) {
+        alert("언팔로우 완료")
         window.location.reload()
     } else if (response.status === 403) {
-        alert(response)
+        alert("팔로우 실패")
     }
 
 }
@@ -55,7 +58,7 @@ async function Profile(user_id) {
 
     document.getElementById('followers-count').innerText = `팔로워 ${response_json.followers_count}`;
     document.getElementById('following-count').innerText = `팔로잉 ${response_json.following_count}`;
-    document.getElementById('list-switch').innerHTML = `<a href="#" onclick ="loadArticles(${user_id})">게시물</a> <a href="#" onclick="loadHeartArticles(${user_id})">좋아요</a>`;
+    document.getElementById('list-switch').innerHTML = `<a class="text_bold" href="#" onclick ="loadArticles(${user_id})">게시물</a> <a class="text_normal" href="#" onclick="loadHeartArticles(${user_id})">좋아요</a>`;
 
     if (user_id_int === logined_id) {
         // 해당 프로필 페이지가 로그인된 사용자의 것일 때 - 수정,탈퇴 보이기
@@ -177,7 +180,7 @@ async function loadHeartArticles(user_id) {
         articles.forEach((article) => {
             $('#article-list').empty()
             const articleElement = document.createElement('div');
-            
+
             articleElement.innerHTML = `
             <div class="CardContainer">
                         

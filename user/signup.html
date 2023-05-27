@@ -13,8 +13,7 @@
 
     <!-- css -->
     <link href="../static/css/base.css" rel="stylesheet">
-
-
+    <link href="../static/css/signup.css" rel="stylesheet">
 
 
 </head>
@@ -39,17 +38,29 @@
             <div class="signup-form-control"><label for="nickname"></label><input type="text" name="nickname"
                     id="nickname" placeholder="Nickname" required></div>
 
-            <div class="signup-form-control mb-3"><label for="formFile" class="form-label">프로필 이미지</label><input
-                    class="form-control" type="file" name="profile_img" id="profile_img" placeholder="profile_img">
+            <div class="signup-form-control mb-3"><label for="formFile" class="form-label"></label>
+                <input class="form-control file-input" type="file" name="profile_img" id="profile_img"
+                    placeholder="profile_img" onchange="previewImage(event)">
+                <div class="preview-container">
+                    <div class="preview-image-wrapper">
+                        <img id="preview" class="preview-image" src="#" alt="">
+                    </div>
+                    <div id="previewText" class="preview-text">프로필 사진<br>미리보기</div>
+                </div>
+                <div class="file-container">
+                </div>
             </div>
 
             <div class="signup-button">
                 <button type="button" onclick="handleSignupButton()">가입하기</button>
             </div>
-            <hr />
-            <div class="buttons">
-                <button><a href="./login.html" style="text-decoration: none; color: black;"> 로그인</a> </button>
-                <button><a href="./reset_password.html" style="text-decoration: none; color: black;"> 비밀번호 재설정
+            <div class="login-buttons">
+                <button><a href="./login.html" style="text-decoration: none; color: rgb(255, 255, 255);"> 로그인</a>
+                </button>
+            </div>
+            <div class="password-buttons">
+                <button><a href="./reset_password.html"
+                        style="margin-top : 10px; text-decoration: none; color: rgb(255, 255, 255);"> 비밀번호 재설정
                     </a></button>
             </div>
         </form>
@@ -62,6 +73,20 @@
     <script src="../static/js/right_sidebar.js"></script>
     <script src="../static/js/left_sidebar.js"></script>
     <script src="../static/js/nav.js"></script>
+
+    <!-- 프로필 이미지 미리보기 추가 -->
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var preview = document.getElementById('preview');
+                var previewText = document.getElementById('previewText');
+                preview.src = reader.result;
+                previewText.classList.add('hidden');  /* 이미지가 올라갈 때 숨김 상태로 변경 */
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 
 </body>
 
