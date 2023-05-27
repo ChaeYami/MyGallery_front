@@ -37,25 +37,15 @@
         <div class="form-group">
             <label for="image-input"></label>
             <div class="preview">
-                <img id="image-preview" src="#" alt="미리보기" style="display:none;">
-                <img id="image-preview2" src="#" alt="미리보기">
+                <img id="image-preview" src="#" alt="미리보기">
             </div>
             <input type="file" id="image-input" accept="image/*" required>
         </div>
 
         <div class="form-group">
-            <label for="title-input">제목</label>
-            <input type="text" id="title-input" required>
-        </div>
-
-        <div class="form-group">
-            <label for="content-input">내용</label>
-            <textarea id="content-input" rows="8" required></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="model-select">모델 선택</label>
-            <select id="model-select">
+            <label for="model-select">모델</label>
+            <span id="model-description">을 선택하시려면 파일을 먼저 선택하세요.</span>
+            <select id="model-select" style="display:none;">
                 <!-- <option value="">모델 선택</option> -->
                 <option value="1">빈센트 반 고흐</option>
                 <option value="2">윌렘 레히텐슈타인</option>
@@ -70,7 +60,17 @@
         </div>
 
         <div class="form-group">
-            <button id="put-btn" class="btn" onclick="PutArticle()">완료</button>
+            <label for="title-input">제목</label>
+            <input type="text" id="title-input" required>
+        </div>
+
+        <div class="form-group">
+            <label for="content-input">내용</label>
+            <textarea id="content-input" rows="8" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <button id="put-btn" class="btn" onclick="PatchArticle()">완료</button>
         </div>
 
     </div>
