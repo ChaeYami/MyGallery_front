@@ -55,7 +55,7 @@ async function Profile(user_id) {
 
     document.getElementById('followers-count').innerText = `팔로워 ${response_json.followers_count}`;
     document.getElementById('following-count').innerText = `팔로잉 ${response_json.following_count}`;
-    document.getElementById('list-switch').innerHTML = `<a href="profile.html?user_id=${user_id}">게시물</a> | <a href="profile_heart_list.html?user_id=${user_id}">좋아요</a>`;
+    document.getElementById('list-switch').innerHTML = `<a href="profile.html?user_id=${user_id}">게시물</a> | <a href="#" onclick="loadHeartArticles(${user_id})">좋아요</a>`;
 
     if (user_id_int === logined_id) {
         // 해당 프로필 페이지가 로그인된 사용자의 것일 때 - 수정,탈퇴 보이기
@@ -134,7 +134,7 @@ async function deactivateAccount() {
 
     }
 }
-
+// 작성한 글 목록
 async function loadArticles(user_id) {
     const response = await fetch(`${backend_base_url}/article/list/${user_id}`, {
         method: 'GET',
@@ -162,6 +162,38 @@ async function loadArticles(user_id) {
         console.error('Failed to load articles:', response.status);
     }
 }
+
+// 하트 누른 글 목록
+async function loadHeartArticles(user_id) {
+    const response = await fetch(`${backend_base_url}/article/hearts/${user_id}`, {
+        method: 'GET',
+    });
+
+    if (response.ok) {
+        const articles = await response.json();
+        const articleListContainer = document.getElementById('article-list');
+
+        articles.forEach((article) => {
+            $('#article-list').empty()
+            const articleElement = document.createElement('div');
+            
+            articleElement.innerHTML = `
+            <div class="CardContainer">
+                        
+                            <a href="../article/detail.html?id=${article.id}">
+                                <img class="CardBox article-list-image" src="${backend_base_url}${article.changed_image}"
+                                    alt="">
+                            </a>
+                        
+                    </div>
+            `;
+            articleListContainer.appendChild(articleElement);
+        });
+    } else {
+        console.error('Failed to load articles:', response.status);
+    }
+}
+
 // 계정 재활성화
 // async function reactivateAccount() {
 //     const reactivateConfirm = confirm("계정을 재활성화하시겠습니까?");
