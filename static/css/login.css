@@ -30,12 +30,11 @@
     color: #fff;
     border: none;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s ease; /* 애니메이션 효과 설정 */
+    
   }
   
   .login-button button:hover {
-    transform: translateY(2px) scale(0.98); /* 버튼 축소 및 아래로 이동 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
   
   .buttons {

@@ -31,6 +31,14 @@ async function existingProfile(){
     }
     
 }
+function toggleFileInput() {
+    const fileInput = document.getElementById("profile_img");
+    if (fileInput.style.display === "none") {
+        fileInput.style.display = "block";
+    } else {
+        fileInput.style.display = "none";
+    }
+}
 
 // 이미지 미리보기
 function previewImage() {

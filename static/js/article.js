@@ -16,7 +16,7 @@ $(document).ready(async function () {
     var maxSize = 3 * 100 * 1024; // 300KB 제한
 
     // 파일 유효성 검사
-    var validImageTypes = ['image/jpeg', 'image/png']; // 허용되는 이미지 파일의 MIME 유형들
+    var validImageTypes = ['image/jpg', 'image/jpeg', 'image/png']; // 허용되는 이미지 파일의 MIME 유형들
     if (!validImageTypes.includes(file.type)) {
       alert('이미지 파일만 업로드할 수 있습니다.');
       return;
@@ -43,7 +43,7 @@ $(document).ready(async function () {
         var imageSrc = `data:image/${imageExtension};base64,${imageData}`;
         $('#image-preview').attr('src', imageSrc);
       } else {
-        console.log("Error: Image data not found in response");
+        console.log("이미지 데이터를 찾지 못했습니다.");
       }
 
       // $('#image-preview').attr('src', `${backend_base_url}${response.image_url}`);
@@ -71,9 +71,6 @@ $(document).ready(async function () {
       // api.js와 연합
       const response = await TransForm(formData)
 
-      // console.log(response);
-      // console.log(response.image_data);
-
       // 이미지 프리뷰를 생성하여 표시
       if (response.image_data) {
         var imageData = response.image_data;
@@ -81,7 +78,7 @@ $(document).ready(async function () {
         var imageSrc = `data:image/${imageExtension};base64,${imageData}`;
         $('#image-preview').attr('src', imageSrc);
       } else {
-        console.log("Error: Image data not found in response");
+        console.log("이미지 데이터를 찾지 못했습니다.");
       }
 
       // $('#image-preview').attr('src', `${backend_base_url}${response.image_url}`);

@@ -1,0 +1,50 @@
+h2{
+    padding: 30px;
+}
+.update-container{
+    width: 500px;
+    border: 1px solid gray;
+    height: inherit;
+    margin: 80px auto;
+    border-radius: 10px;
+}
+#profile-edit-form{
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 350px;
+
+}
+
+#profile_preview{
+    margin-bottom: 20px;
+    width: 200px;
+}
+#profile-edit-form div{
+    display: flex;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+
+
+}
+#profile-edit-form button{
+    width: 50px;
+}
+
+.link-style {
+    cursor: pointer;
+}
+#profile-edit-form input{
+    width: 250px ;
+    height: 32px;
+
+}
+#profile-edit-form textarea{
+    width: 250px ;
+    height: 60px;
+    
+}

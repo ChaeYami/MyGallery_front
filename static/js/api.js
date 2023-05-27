@@ -1,5 +1,3 @@
-
-
 $(document).ready(async function () {
     let urlParam = new URLSearchParams(window.location.search);
     let user_id = urlParam.get('user_id');
@@ -40,10 +38,8 @@ function PostArticle() {
     const trans_image = $('#image-preview').attr('src');
     const change_id = $('#model-select').val()
 
-    console.log(title);
-
     if (title == '' || content == '' || image == null || trans_image == null) {
-        alert("입력해 주세요.");
+        alert("입력 해주세요.");
         return;
     }
 
@@ -99,10 +95,6 @@ async function GetArticle(article_id) {
             url: `${backend_base_url}/article/${article_id}/`,
             method: 'GET'
         });
-        console.log('response');
-        console.log(response);
-        console.log('response.id');
-        console.log(response.id);
         // 응답 데이터 처리
         return response; // 결과 반환
 
@@ -112,4 +104,53 @@ async function GetArticle(article_id) {
         window.location.href = `${frontend_base_url}/article/404.html`
     }
 };
-//put
+
+// 게시글 put
+function PatchArticle() {
+    const title = $('#title-input').val();
+    const content = $('#content-input').val();
+    const image = $('#image-input')[0].files[0];
+    const trans_image = $('#image-preview').attr('src');
+    const change_id = $('#model-select').val()
+
+    const article_id = new URLSearchParams(window.location.search).get('id');
+
+
+    if (title == '' || content == '') {
+        alert("입력해 주세요.");
+        return;
+    }
+
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("content", content);
+
+    // 이미지 데이터를 File 객체로 변환하여 추가
+    if (image) {
+        formData.append("uploaded_image", image);
+        var imageFile = dataURLtoFile(trans_image, 'changed_image.png');
+        formData.append("changed_image", imageFile);
+        formData.append("change_id", change_id);
+    }
+
+    $.ajax({
+        url: `${backend_base_url}/article/${article_id}/`,
+        type: 'PATCH',
+        data: formData,
+        processData: false,
+        contentType: false,
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('access')}`
+        },
+        success: function (response) {
+            alert("글 수정 완료");
+            window.location.href = `${frontend_base_url}/index.html`;
+        },
+        error: function (error) {
+            console.log("Error: " + error);
+            alert('오류입니다.');
+            // window.location.href = `${frontend_base_url}/article/404.html`
+        }
+    });
+};
