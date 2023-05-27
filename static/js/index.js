@@ -59,7 +59,6 @@ function getArticles() {
                                 </div>`
                 $('#card_list').append(temp_html)
             }
-
         },
         error: function () {
             alert("불러오기 실패!");
