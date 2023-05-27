@@ -61,6 +61,19 @@
     margin: 0 10px;
 }
 
+#edit-account button{
+    width: 100px;
+    height: 25px;
+    font-size: 15px;
+    background-color: #ffffffb2;
+    border: none;
+    border-radius: 5px;
+
+}
+#edit-account a :hover{
+    cursor: pointer;
+}
+
 #list-switch {
     display: flex;
     justify-content: space-evenly;
@@ -191,3 +204,4 @@ body {
 .text_normal {
     font-weight: normal;
 }
+
