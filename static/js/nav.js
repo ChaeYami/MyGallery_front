@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     logoutBtn.setAttribute("onclick", "confirmLogout()");
 
-                    
+
 
                     newLi.appendChild(logoutBtn);
 
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (loginbtn) {
                     loginbtn.style.display = "none";
                     signupbtn.style.display = "none";
-                    createbtn.style.display="block";
+                    createbtn.style.display = "block";
                 }
 
 

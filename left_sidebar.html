@@ -24,7 +24,7 @@
             </li>
             <li><a href="../index.html"><img src="../static/img/home.png" alt="" style="width:40px;"> &nbsp 홈</a></li>
 
-            <li id="create-article" style="display: none;"><a href="../article/articles.html"><img
+            <li id="create-article" style="display: none;"><a href="#" onclick="openPosting()"><img
                         src="../static/img/writing.png" alt="" style="width:40px;">&nbsp글쓰기</a></li>
 
 
@@ -39,6 +39,18 @@
             </li>
         </ul>
     </div>
+
+
+    <!--모달 팝업-->
+    <div class="popup-wrap" id="posting_popup">
+        <div class="popup">
+            <div class="popup-body">
+                <button class="close_popup_btn" onclick="closePosting()"></button>
+                <iframe src="#" id="posting_popup_iframe" class="iframe"></iframe>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

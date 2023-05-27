@@ -66,3 +66,23 @@ async function handleLogout() {
     localStorage.removeItem("payload")
     location.replace('../index.html')
 }
+
+
+// 글 작성 팝업 열기
+function openPosting() {
+    $('#posting_popup_iframe').attr('src', `${frontend_base_url}/article/articles.html`);
+    $('html, body').css({
+        'overflow': 'hidden'
+    });
+    $('#posting_popup').fadeIn(200);
+    $('.popup').scrollTop(0);
+}
+
+
+// 글 작성 팝업 닫기
+function closePosting() {
+    $('html, body').css({
+        'overflow': 'auto'
+    });
+    $('#posting_popup').fadeOut(200);
+}
