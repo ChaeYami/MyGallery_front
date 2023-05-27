@@ -43,20 +43,22 @@
 
 
         <div id="profile-info">
-            <img id="profile_img" src="" class="card-img-top" alt="...">
+            <div class="profile_img"><img id="profile_img" src="" class="card-img-top" alt="..."></div>
 
             <div id="profile-content">
-                <span id="nickname"></span><span id="follow-button" style="display: block;"></span>
+                <div class="nickname-section">
+                    <span id="nickname"></span><span id="follow-button" style="display: block;"></span>
+                </div>
                 <p id="introduce"></p>
 
                 <div>
                     게시물 <a id="article-count"></a>
-                    | <a href="#" id="followers-count" onclick="openFollowers()"></a>
-                    | <a href="#" id="following-count" onclick="openFollowings()"></a>
+                    &nbsp <a href="#" id="followers-count" onclick="openFollowers()"></a>
+                    &nbsp <a href="#" id="following-count" onclick="openFollowings()"></a>
                 </div>
 
                 <p id="edit-account" style="display: none;">
-                    <a href="../user/profile_update.html">프로필 수정</a> | <a href="../article/articles.html">글작성</a>
+                    <a href="../user/profile_update.html"><button>프로필 수정</button></a>  <a href="../article/articles.html"><button>글작성</button></a>
                 </p>
             </div>
         </div>
@@ -68,7 +70,7 @@
 
 
         <div>
-            <section class="Main">
+            <section class="Main" style="margin-top: 20px;">
                 <div id="article-list" class="grid">
 
 
