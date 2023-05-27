@@ -1,3 +1,8 @@
+body{
+    /* background-image: linear-gradient(to bottom, #e7e5bc, #d0e6c5, #bfe5d1, #b7e1dc, #b7dce3, #b6d8e6, #b8d4e7, #bcd0e7, #bcccea, #bfc7eb, #c4c2eb, #ccbce9);  */
+    background-color: #daf0e4;
+}
+
 h2{
     padding: 30px;
 }

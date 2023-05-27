@@ -16,25 +16,30 @@ async function ArticleDetail() {
     })
 
     response_json = await response.json()
-    const author_img = document.getElementById('author-img');
-    const author_img_url = `${backend_base_url}/media/${response_json.user.profile_img}`;
-    const author = document.getElementById('author');
+
+    const author_section = document.getElementById('author-section');
     const title = document.getElementById('title');
     const content = document.getElementById('content');
-    const created_at = document.getElementById('created-at');
-    // const updated_at = document.getElementById('updated-at');
 
     const editBtn = document.getElementById('edit-btn');
     const deleteBtn = document.getElementById('delete-btn');
 
     const img = document.getElementById('article-img');
-    
-    author_img.setAttribute("src", author_img_url)
-    author.innerHTML = `&nbsp${response_json.user.nickname}`
+
+    author_section.innerHTML = `
+        <a href="${frontend_base_url}/user/profile.html?user_id=${response_json.user.pk}">
+            <span class="author-img">
+                <img id="author-img" src="${backend_base_url}/media/${response_json.user.profile_img}"
+                    alt="...">
+            </span>
+            <span id="author">&nbsp${response_json.user.nickname}</span>
+        </a>
+        <div>
+            <span id="created-at">${response_json.created_at}</span>
+        </div>
+    `
     title.innerText = response_json.title
     content.innerText = response_json.content
-    created_at.innerText = response_json.created_at
-    // updated_at.innerText = response_json.updated_at
 
     img.innerHTML = `<img class="article-list-image" src="${backend_base_url}${response_json.changed_image}" alt="">`
 
@@ -127,7 +132,7 @@ async function loadComments() {
                     </div>
                     <div id="comment-info">
                         <div id="comment-created-at">${comment.comment_created_at}</div>
-                        <a href="#" onclick="CommentDelete(${comment.id})">댓글삭제</a>
+                        <a href="#" onclick="CommentDelete(${comment.id})">삭제</a>
                     </div>
                 </div>
             </div>

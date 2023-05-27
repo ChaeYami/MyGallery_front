@@ -50,9 +50,8 @@ async function Profile(user_id) {
     const profile_img_element = document.getElementById("profile_img")
 
     profile_img_element.setAttribute("src", profile_img_url)
-
     document.getElementById('point').innerText = response_json.point + 'p'
-    document.getElementById('nickname').innerText = response_json.nickname
+    document.getElementById('nickname').innerHTML = `${response_json.nickname}&nbsp(${response_json.account})`
     document.getElementById('introduce').innerText = response_json.introduce
 
     document.getElementById('followers-count').innerText = `팔로워 ${response_json.followers_count}`;

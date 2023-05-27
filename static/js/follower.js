@@ -3,6 +3,27 @@ $(document).ready(function () {
     getFollowers(urlParams)
 })
 
+// 팔로우
+async function handleFollow(user_id) {
+    const response = await fetch(`${backend_base_url}/user/${user_id}/follow/`, {
+        headers: {
+            'content-type': 'application/json',
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: 'POST',
+        
+    })
+    if (response.status === 200) {
+        alert("팔로우 완료")
+        window.location.reload()
+    } else if (response.status === 205) {
+        alert("언팔로우 완료")
+        window.location.reload()
+    } else if (response.status === 403) {
+        alert("팔로우 실패")
+    }
+}
+
 function getFollowers(user_id) {
     $('#follower_list').empty()
 
@@ -14,6 +35,7 @@ function getFollowers(user_id) {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         success: function (response) {
+            console.log(response)
             const rows = response[0]['followers'];
             for (let i = 0; i < rows.length; i++) {
                 let follower_id = rows[i]['id']
@@ -31,6 +53,7 @@ function getFollowers(user_id) {
                                             ${follower_nickname}
                                         </div>
                                     </a>
+                                    <button type="button" onclick="handleFollow(${follower_id})">버튼 ㅎㅎ</button>
                                 </div>`
 
                 $('#follower_list').append(temp_html)

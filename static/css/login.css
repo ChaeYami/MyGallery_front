@@ -1,9 +1,13 @@
+body{
+  background-color: #f8f7d8;
+}
+
 /* 로그인 폼 스타일 */
 .login-form {
     width: 300px;
     margin: 250px auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 3px solid #20003a1a;
     text-align: center; /* 가운데 정렬 */
     border-radius: 10px;
   }
@@ -39,11 +43,11 @@
   
   .buttons {
     text-align: center;
+    margin: 20px 0;
   }
   
   .buttons button {
     margin-right: 10px;
-    background-color: #f2f2f2;
     border: none;
     cursor: pointer;
   }
@@ -51,6 +55,8 @@
   .buttons button a {
     text-decoration: none;
     color: #000;
+    background-color: #f8f7d8;
+
   }
 
   .buttons button:hover {

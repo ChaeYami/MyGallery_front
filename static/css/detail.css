@@ -1,8 +1,13 @@
 body {
-    background-image: linear-gradient(to left, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #fdfdff, #fafbfe, #f6f9fe, #ecf5fc, #e0f2f8, #d5f0f0, #ceece5);
+    width: 80%;
+    float: right;
+    /* right: 0;
+    position: fixed; */
+    background-image: linear-gradient(to right, #fffcc1, #fff3cf, #fff0e8, #fff4fb, #fff9ff, #fefbff, #fefdff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
 
-    @media screen and (max-width:800px) {
+    @media screen and (max-width:900px) {
         background-image: none;
+        width:100%
     }
 }
 
@@ -16,7 +21,7 @@ body {
     width: 70vw;
     justify-content: space-between;
 
-    @media screen and (max-width:800px) {
+    @media screen and (max-width:900px) {
         flex-direction: column;
         align-items: stretch;
 
@@ -32,7 +37,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    @media screen and (max-width:800px) {
+    @media screen and (max-width:900px) {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -58,8 +63,11 @@ body {
 
 .detail-section {
     width: 35%;
+    height: 600px;
+    overflow: auto;
+    padding-right: 10px;
 
-    @media screen and (max-width:800px) {
+    @media screen and (max-width:900px) {
         width: 100%
     }
 }
@@ -67,9 +75,10 @@ body {
 .author-section {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.author-section div {
+.author-section a {
     display: flex;
     align-items: center;
 }
@@ -108,11 +117,7 @@ body {
     border: none;
     border-radius: 3px;
     background-color: #e5def1;
-}
-
-#comment-list {
-    overflow: auto;
-    height: 40vh;
+    cursor: pointer;
 }
 
 #comment-area {
@@ -120,12 +125,19 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+#comment-area button{
+    cursor: pointer;
+}
 
 #comment {
     width: 18vw;
-    padding: 5px;
-
-    @media screen and (max-width:800px) {
+    height: 40px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.041);
+    border: none;
+    border-radius: 5px;
+    resize: none;
+    @media screen and (max-width:900px) {
         width: 55vw
     }
 }
@@ -166,12 +178,11 @@ body {
 }
 
 #comment-section {
-    margin: 5px;
-    width: 90%;
+    margin-top: 5px;
+    width: 100%;
 }
 
 #comment-body {
-    width: 100%;
     min-height: 30px;
     background-color: rgba(9, 21, 61, 0.075);
     border-radius: 5px;
@@ -180,7 +191,7 @@ body {
 
 #comment-info {
     display: flex;
-    width: inherit;
+    width: 100%;
     justify-content: space-between;
     margin-top: 5px;
 
@@ -192,7 +203,7 @@ body {
 }
 
 #comment-info a {
-    background-color: #e5def1;
+    background-color: #fff2f6;
     padding: 3px;
     border-radius: 3px;
     font-size: small;

@@ -86,7 +86,7 @@ a {
     width: 100%;
     position: fixed;
     top: -50px;
-    background-color: antiquewhite;
+    background-color:#fffee2a1
 }
 
 .navbar li {
@@ -103,7 +103,7 @@ a {
 }
 
 /* 미디어 쿼리 */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     #left-sidebar {
         transform: translateX(-100%);
     }
