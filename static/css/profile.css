@@ -27,7 +27,6 @@
     width: 200px;
     height: 200px;
     border-radius: 100%;
-    border: 1px solid gray;
 }
 
 #profile_img {
@@ -172,3 +171,8 @@
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+
+body{
+    height: 100vh;
+    background-image: linear-gradient(to right top, #eceabd, #d6ebc6, #c5ead2, #bce7dd, #bae2e4, #badee7, #bddae9, #c2d6e8, #c5d3e8, #c8d0e8, #cdcde6, #d2c9e3);
+}

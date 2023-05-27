@@ -20,7 +20,7 @@ a {
     width: 20vw;
     min-width: 120px;
     height: 100%;
-    background-color: #f3f3f3;
+    background-color: #ffffff44;
     display: flex;
     align-items: center;
     flex-flow: column;
@@ -36,14 +36,19 @@ a {
     width: 20vw;
     min-width: 120px;
     height: 100%;
-    background-color: #f3f3f3;
+    background-color: #ffffff44;
     display: flex;
     align-items: center;
     flex-flow: column;
     z-index: 1;
+    color: white;
 }
 .sidebar{
     margin-top: 20px;
+}
+.sidebar a{
+    color: rgb(0, 0, 0);
+
 }
 .sidebar li {
     list-style: none;
