@@ -20,6 +20,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 #profile_img {
@@ -32,21 +33,28 @@
     flex-direction: column;
     align-items: flex-start;
 }
+#profile-content div{
+    margin: 10px 0;
+}
+.nickname-section{
+    display: flex;
+}
+#follow-button{
+    margin: 0 10px;
+}
 
 #list-switch {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 20px;
+    margin: 10px 0;
+    
 }
 
 .grid{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    @media screen and (max-width:1000px) {
-        gap:10px;
-    }
+    gap: 10px;
     @media screen and (max-width:800px) {
         gap:3px;
     }
