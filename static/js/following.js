@@ -4,7 +4,7 @@ $(document).ready(function () {
 })
 
 function getFollowers(user_id) {
-    $('#follower_list').empty()
+    $('#following_list').empty()
 
     $.ajax({
         url: `${backend_base_url}/user/${user_id}/follow/`,
@@ -14,26 +14,26 @@ function getFollowers(user_id) {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         success: function (response) {
-            const rows = response[0]['followers'];
+            const rows = response[0]['followings'];
             for (let i = 0; i < rows.length; i++) {
-                let follower_id = rows[i]['id']
-                let follower_nickname = rows[i]['nickname']
-                let follower_profile_image = rows[i]['profile_image']
+                let following_id = rows[i]['id']
+                let following_nickname = rows[i]['nickname']
+                let following_profile_image = rows[i]['profile_image']
 
                 let temp_html = `<div class="user_wrap">
-                                    <a href="#" onclick="openProfile(this)" name="${follower_id}">
+                                    <a href="#" onclick="openProfile(this)" name="${following_id}">
                                         <div class="profile_image_box">
                                             <img class="profile_image"
-                                                src="${backend_base_url}${follower_profile_image}"
+                                                src="${backend_base_url}${following_profile_image}"
                                                 alt="">
                                         </div>
                                         <div class="nickname">
-                                            ${follower_nickname}
+                                            ${following_nickname}
                                         </div>
                                     </a>
                                 </div>`
 
-                $('#follower_list').append(temp_html)
+                $('#following_list').append(temp_html)
             }
         },
         error: function () {
