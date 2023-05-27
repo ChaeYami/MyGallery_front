@@ -1,21 +1,24 @@
-#owner-section{
+#owner-section {
     flex-direction: row;
     justify-content: space-between;
 }
 
 
 
-#profile-wrap{
+#profile-wrap {
     padding: 30px;
 }
-#owner-section-btn{
+
+#owner-section-btn {
     background: none;
     border: none;
 }
-#owner-section-btn img{
+
+#owner-section-btn img {
     width: 20px;
 }
-#profile-info{
+
+#profile-info {
 
     display: flex;
     justify-content: center;
@@ -46,13 +49,16 @@
     align-items: flex-start;
     margin: 0 50px;
 }
-#profile-content div{
+
+#profile-content div {
     margin: 10px 0;
 }
-.nickname-section{
+
+.nickname-section {
     display: flex;
 }
-#follow-button{
+
+#follow-button {
     margin: 0 10px;
 }
 
@@ -60,31 +66,32 @@
     display: flex;
     justify-content: space-evenly;
     margin: 10px 0;
-    
+
 }
 
-.grid{
+.grid {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+
     @media screen and (max-width:800px) {
-        gap:3px;
+        gap: 3px;
     }
 }
 
-.CardContainer{
+.CardContainer {
     width: 100%;
     position: relative;
 }
 
-.CardContainer::after{
+.CardContainer::after {
     display: block;
     content: "";
     padding-bottom: 100%;
 }
 
-.CardBox{
+.CardBox {
     border: 1px solid gray;
     border-radius: 5px;
     position: absolute;
@@ -172,3 +179,10 @@
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+.text_bold {
+    font-weight: bold;
+}
+
+.text_normal {
+    font-weight: normal;
+}
