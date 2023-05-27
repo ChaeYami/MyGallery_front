@@ -11,7 +11,7 @@ $(document).ready(async function () {
         const me_id = payload_parse.user_id;
 
         // 접속 유저와 작성 유저가 같다면?
-        if (me_id != response.user) {
+        if (me_id != response.user.id) {
             alert('권한이 없습니다!')
             window.location.href = `${frontend_base_url}/index.html`;
         }
