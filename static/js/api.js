@@ -38,10 +38,8 @@ function PostArticle() {
     const trans_image = $('#image-preview').attr('src');
     const change_id = $('#model-select').val()
 
-    console.log(title);
-
     if (title == '' || content == '' || image == null || trans_image == null) {
-        alert("입력해 주세요.");
+        alert("입력 해주세요.");
         return;
     }
 
@@ -97,10 +95,6 @@ async function GetArticle(article_id) {
             url: `${backend_base_url}/article/${article_id}/`,
             method: 'GET'
         });
-        console.log('response');
-        console.log(response);
-        console.log('response.id');
-        console.log(response.id);
         // 응답 데이터 처리
         return response; // 결과 반환
 
@@ -112,18 +106,17 @@ async function GetArticle(article_id) {
 };
 
 // 게시글 put
-function PutArticle() {
+function PatchArticle() {
     const title = $('#title-input').val();
     const content = $('#content-input').val();
     const image = $('#image-input')[0].files[0];
-    const trans_image = $('#image-preview2').attr('src');
+    const trans_image = $('#image-preview').attr('src');
     const change_id = $('#model-select').val()
 
     const article_id = new URLSearchParams(window.location.search).get('id');
 
-    console.log(title);
 
-    if (title == '' || content == '' || image == null || trans_image == null) {
+    if (title == '' || content == '') {
         alert("입력해 주세요.");
         return;
     }
@@ -132,16 +125,18 @@ function PutArticle() {
 
     formData.append("title", title);
     formData.append("content", content);
-    formData.append("uploaded_image", image);
-    formData.append("change_id", change_id);
 
     // 이미지 데이터를 File 객체로 변환하여 추가
-    var imageFile = dataURLtoFile(trans_image, 'changed_image.png');
-    formData.append("changed_image", imageFile);
+    if (image) {
+        formData.append("uploaded_image", image);
+        var imageFile = dataURLtoFile(trans_image, 'changed_image.png');
+        formData.append("changed_image", imageFile);
+        formData.append("change_id", change_id);
+    }
 
     $.ajax({
         url: `${backend_base_url}/article/${article_id}/`,
-        type: 'PUT',
+        type: 'PATCH',
         data: formData,
         processData: false,
         contentType: false,
