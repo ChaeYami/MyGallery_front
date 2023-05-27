@@ -14,19 +14,13 @@
     <!-- css -->
     <link href="../static/css/base.css" rel="stylesheet">
 
-
-
     <!-- JS -->
-    <script src="../static/js/left_sidebar.js"></script>
+    <!-- <script src="../static/js/left_sidebar.js"></script> -->
     <script src="../static/js/base_url.js"></script>
-    <script src="../static/js/nav.js"></script>
+    <!-- <script src="../static/js/nav.js"></script> -->
     <script src="../static/js/api.js"></script>
     <script src="../static/js/update_article.js"></script>
     <!-- <script src="../static/js/right_sidebar.js"></script> -->
-
-
-
-
 
 </head>
 
@@ -49,18 +43,9 @@
         </div>
 
         <div class="form-group">
-            <label for="title-input">제목</label>
-            <input type="text" id="title-input" required>
-        </div>
-
-        <div class="form-group">
-            <label for="content-input">내용</label>
-            <textarea id="content-input" rows="8" required></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="model-select">모델 선택</label>
-            <select id="model-select">
+            <label for="model-select">모델</label>
+            <span id="model-description">을 선택하시려면 파일을 먼저 선택하세요.</span>
+            <select id="model-select" style="display:none;">
                 <!-- <option value="">모델 선택</option> -->
                 <option value="1">빈센트 반 고흐</option>
                 <option value="2">윌렘 레히텐슈타인</option>
@@ -75,7 +60,17 @@
         </div>
 
         <div class="form-group">
-            <button id="put-btn" class="btn" onclick="PostArticle()">완료</button>
+            <label for="title-input">제목</label>
+            <input type="text" id="title-input" required>
+        </div>
+
+        <div class="form-group">
+            <label for="content-input">내용</label>
+            <textarea id="content-input" rows="8" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <button id="put-btn" class="btn" onclick="PatchArticle()">완료</button>
         </div>
 
     </div>
@@ -87,4 +82,3 @@
 </body>
 
 </html>
-
