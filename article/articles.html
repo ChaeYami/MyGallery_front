@@ -10,8 +10,6 @@
   <!-- jQuery CDN -->
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 
   <!-- css -->
   <link href="../static/css/base.css" rel="stylesheet">
@@ -34,17 +32,7 @@
     </div>
 
     <div class="form-group">
-      <label for="title-input">제목</label>
-      <input type="text" id="title-input" required>
-    </div>
-
-    <div class="form-group">
-      <label for="content-input">내용</label>
-      <textarea id="content-input" rows="8" required></textarea>
-    </div>
-
-    <div class="form-group">
-      <label for="model-select">모델 선택</label>
+      <label for="model-select">모델</label>
       <select id="model-select">
         <!-- <option value="">모델 선택</option> -->
         <option value="1">빈센트 반 고흐</option>
@@ -60,6 +48,16 @@
     </div>
 
     <div class="form-group">
+      <label for="title-input">제목</label>
+      <input type="text" id="title-input" required>
+    </div>
+
+    <div class="form-group">
+      <label for="content-input">내용</label>
+      <textarea id="content-input" rows="8" required></textarea>
+    </div>
+
+    <div class="form-group">
       <button id="post-btn" class="btn" onclick="PostArticle()">완료</button>
     </div>
 
@@ -67,12 +65,11 @@
 
 </body>
 
-  <script src="../static/js/base_url.js"></script>
-  <script src="../static/js/index.js"></script>
-  <script src="../static/js/api.js"></script>
-  <script src="../static/js/article.js"></script>
-  <script src="../static/js/nav.js"></script>
+<script src="../static/js/base_url.js"></script>
+<script src="../static/js/index.js"></script>
+<script src="../static/js/api.js"></script>
+<script src="../static/js/article.js"></script>
+<script src="../static/js/nav.js"></script>
 </body>
 
 </html>
-
