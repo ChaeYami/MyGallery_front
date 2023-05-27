@@ -23,8 +23,11 @@ async function ArticleDetail() {
     const created_at = document.getElementById('created-at');
     // const updated_at = document.getElementById('updated-at');
 
+    const editBtn = document.getElementById('edit-btn');
+    const deleteBtn = document.getElementById('delete-btn');
+
     const img = document.getElementById('article-img');
-    console.log(response_json)
+
     author.innerHTML = response_json.user.nickname
     title.innerText = response_json.title
     content.innerText = response_json.content
@@ -33,6 +36,13 @@ async function ArticleDetail() {
 
     img.innerHTML = `<img class="article-list-image" src="${backend_base_url}${response_json.changed_image}" alt="">`
 
+    if (response_json.user.pk === user_id) {
+        editBtn.style.display = 'block';    
+        deleteBtn.style.display = 'block';  
+    } else {
+        editBtn.style.display = 'none';   
+        deleteBtn.style.display = 'none'; 
+    }
 }
 
 // 수정 페이지로 이동
