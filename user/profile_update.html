@@ -30,10 +30,11 @@
         <div id="profile-edit-form">
             <img id="profile_preview" src="../static/img/unknown.jpg" alt="프로필 이미지 미리보기">
             <div class="button-container">
-                <input type="file" id="profile_img" name="profile_img" style="display: none;" onchange="previewImage()">
                 <button type="button" class="link-style" onclick="toggleFileInput()">프로필 사진 바꾸기</button>
-                <button type="button" class="delete-image-button" onclick="deleteProfileImage()">사진 삭제</button>
+                <input type="file" id="profile_img" name="profile_img" style="display: none;" onchange="previewImage()">
             </div>
+            <button type="button" class="delete-image-button" onclick="deleteProfileImage()">사진 삭제</button>
+
             <div>
                 <label for="nickname">닉네임</label>
                 <input type="text" id="nickname" name="nickname">
