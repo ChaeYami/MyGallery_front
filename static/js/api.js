@@ -38,8 +38,8 @@ function PostArticle() {
     const trans_image = $('#image-preview').attr('src');
     const change_id = $('#model-select').val()
 
-    if (title == '' || content == '' || image == null || trans_image == null || change_id == "") {
-        alert("입력 해주세요.");
+    if (image == null || trans_image == null || change_id == "") {
+        alert("이미지를 등록해주세요.");
         return;
     }
 
@@ -67,10 +67,10 @@ function PostArticle() {
             alert("글 작성 완료");
             window.location.href = `${frontend_base_url}/index.html`;
         },
-        error: function (error) {
-            console.log("Error: " + error);
-            alert('오류입니다.');
-            // window.location.href = `${frontend_base_url}/article/404.html`
+        error: function (xhr) {
+            const errorData = xhr.responseJSON;
+            const errorArray = Object.entries(errorData);
+            alert(errorArray[0][1][0]);
         }
     });
 };

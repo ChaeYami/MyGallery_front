@@ -4,56 +4,57 @@
     margin: 250px auto;
     padding: 20px;
     border: 1px solid #ccc;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-radius: 10px;
-  }
-  
-  .login-form-control {
+}
+
+.login-form-control {
     margin-bottom: 10px;
-  }
-  
-  .login-form-control label {
+}
+
+.login-form-control label {
     display: block;
-  }
-  
-  .login-form-control input[type="text"],
-  .login-form-control input[type="password"] {
+}
+
+.login-form-control input[type="text"],
+.login-form-control input[type="password"] {
     width: 100%;
     padding: 10px;
-    box-sizing: border-box; /* 너비를 컨텐츠 영역에 맞게 설정 */
-  }
-  
-  .login-button button {
+    box-sizing: border-box;
+    /* 너비를 컨텐츠 영역에 맞게 설정 */
+}
+
+.login-button button {
     width: 100%;
     padding: 10px;
     background-color: #464646;
     color: #fff;
     border: none;
     cursor: pointer;
-    
-  }
-  
-  .login-button button:hover {
+}
+
+.login-button button:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  }
-  
-  .buttons {
+}
+
+.buttons {
     text-align: center;
-  }
-  
-  .buttons button {
+}
+
+.buttons button {
     margin-right: 10px;
     background-color: #f2f2f2;
     border: none;
     cursor: pointer;
-  }
-  
-  .buttons button a {
+}
+
+.buttons button a {
     text-decoration: none;
     color: #000;
-  }
+}
 
-  .buttons button:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* 마우스 호버 시 그림자 효과 */
-  }
-  
+.buttons button:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    /* 마우스 호버 시 그림자 효과 */
+}
