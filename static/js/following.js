@@ -25,7 +25,8 @@ function getFollowers(user_id) {
                                         <div class="profile_image_box">
                                             <img class="profile_image"
                                                 src="${backend_base_url}${following_profile_image}"
-                                                alt="">
+                                                alt="No Image"
+                                                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
                                         </div>
                                         <div class="nickname">
                                             ${following_nickname}

@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 const payload_parse = JSON.parse(payload);
                 intro.innerHTML = `
                 <a href="${frontend_base_url}/user/profile.html?user_id=${payload_parse.user_id}">
-                <span id="sidebar-profile"><img class="profile-img" src="${backend_base_url}/media/${payload_parse.profile_img}" alt=""></span>
+                <span id="sidebar-profile"><img class="profile-img" src="${backend_base_url}/media/${payload_parse.profile_img}" alt="No Image"
+                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'"></span>
                 &nbsp${payload_parse.nickname}</a>
             `
 

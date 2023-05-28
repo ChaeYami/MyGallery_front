@@ -49,7 +49,9 @@ async function Profile(user_id) {
     const profile_img_url = `${backend_base_url}${response_json.profile_img}`;
     const profile_img_element = document.getElementById("profile_img")
 
-    profile_img_element.setAttribute("src", profile_img_url)
+    if (response_json.profile_img != null) {
+        profile_img_element.setAttribute("src", profile_img_url)
+    }
     document.getElementById('point').innerText = response_json.point + 'p'
     document.getElementById('nickname').innerHTML = `${response_json.nickname}&nbsp(${response_json.account})`
     document.getElementById('introduce').innerText = response_json.introduce
