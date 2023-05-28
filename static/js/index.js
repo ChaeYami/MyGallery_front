@@ -1,17 +1,15 @@
 
 $(document).ready(function () {
     getArticles()
-
-    $(document).ready(function () {
-        $('#toggle-btn').click(function () {
-            if ($('.playlist--list').is(":visible")) {
-                $('#toggle-btn').text("▶ Playlist");
-            } else {
-                $('#toggle-btn').text("▼ 숨기기");
-            }
-            $('.playlist--list').slideToggle('slow');
-        });
+    $('#toggle-btn').click(function () {
+        if ($('.playlist--list').is(":visible")) {
+            $('#toggle-btn').text("▶ Playlist");
+        } else {
+            $('#toggle-btn').text("▼ 숨기기");
+        }
+        $('.playlist--list').slideToggle('slow');
     });
+    
 })
 
 // 게시글 목록 가져오기
