@@ -8,7 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.text())
             .then(data => {
                 leftSidebarContainer.innerHTML = data;
-
+            })
+            // 이 것이 없어서 로그아웃이 나오는 것 같음 오류 발생 시 삭제 하시면 됨.
+            .then(() => {
+                // 이 것이 없어서 로그아웃이 나오는 것 같음 오류 발생 시 삭제 하시면 됨.
 
                 const payload = localStorage.getItem("payload");
                 const payload_parse = JSON.parse(payload);
@@ -46,6 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     createbtn.style.display = "block";
                     signupbtn.style.display = "none";
                 }
+
+
+
             })
             .catch(error => {
                 console.error("사이드바를 불러오는데 오류가 발생했습니다.", error);
