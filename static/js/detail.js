@@ -59,7 +59,6 @@ function redirectUpdatePage() {
 
 
 // 글 삭제
-
 async function ArticleDelete() {
     if (confirm("삭제하시겠습니까?")) {
         const response = await fetch(`${backend_base_url}/article/${article_id}`, {
@@ -80,7 +79,6 @@ async function ArticleDelete() {
 
 
 // 댓글 작성
-
 async function save_comment() {
     const comment = document.getElementById("comment").value
 
@@ -170,11 +168,11 @@ async function ClickHeart() {
             'content-type': 'application/json',
         },
         method: 'POST',
-    })
-    if (response.status === 200) {
-        alert("❤️")
+    }).then((res) => res.json()).then((data) => {
+        alert(data['message'])
         location.reload();
-    }
+    });
+    
 }
 
 
