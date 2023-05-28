@@ -65,7 +65,7 @@ function PostArticle() {
         },
         success: function (response) {
             alert("글 작성 완료");
-            window.location.href = `${frontend_base_url}/index.html`;
+            window.parent.location.href = `${frontend_base_url}/index.html`;
         },
         error: function (xhr) {
             const errorData = xhr.responseJSON;

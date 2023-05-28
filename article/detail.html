@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="edit-n-del">
-                        <button id="edit-btn" onclick="redirectUpdatePage()">수정</button>
+                        <button id="edit-btn" onclick="openEdit()">수정</button>
                         <button id="delete-btn" onclick="ArticleDelete()">삭제</button>
                     </div>
                 </div>
@@ -71,6 +71,20 @@
             </div>
         </div>
     </div>
+
+
+
+    <!--모달 팝업-->
+    <div class="popup-wrap" id="edit_popup">
+        <div class="popup">
+            <div class="popup-body">
+                <button class="close_popup_btn" onclick="closeEdit()"></button>
+                <iframe src="#" id="edit_popup_iframe" class="iframe"></iframe>
+            </div>
+        </div>
+    </div>
+
+
     <!-- JS -->
     <script src="../static/js/base_url.js"></script>
     <script src="../static/js/index.js"></script>

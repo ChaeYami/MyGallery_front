@@ -12,73 +12,63 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <!-- css -->
-    <link href="../static/css/base.css" rel="stylesheet">
-
-    <!-- JS -->
-    <!-- <script src="../static/js/left_sidebar.js"></script> -->
-    <script src="../static/js/base_url.js"></script>
-    <!-- <script src="../static/js/nav.js"></script> -->
-    <script src="../static/js/api.js"></script>
-    <script src="../static/js/update_article.js"></script>
-    <!-- <script src="../static/js/right_sidebar.js"></script> -->
+    <link href="../static/css/update_article.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- 상단 네비게이션바 -->
-    <div id="navbar-container"></div>
+    <div class="page_title">
+        게시글 수정 페이지
+    </div>
+    <div class="posting_container">
+        <div class="image_preview_box">
+            <img class="image_preview" id="image-preview"
+                src="https://tacm.com/wp-content/uploads/2018/01/no-image-available.jpeg" alt="">
+        </div>
 
-    <div id="left-sidebar"></div>
-    <div id="right-sidebar"></div>
-    <div class="article-form">
-        <h2>게시글 수정</h2>
-
-        <div class="form-group">
-            <label for="image-input"></label>
-            <div class="preview">
-                <img id="image-preview" src="#" alt="미리보기">
+        <div class="image_input_wrap">
+            <div class="image_input_box">
+                <label for="image-input"></label>
+                <input type="file" id="image-input" accept="image/*" required>
             </div>
-            <input type="file" id="image-input" accept="image/*" required>
+            <div class="model_select_box">
+                <label class="model_select_label" for="model-select" id="model-select-label">이미지 변환 모델 선택</label>
+                <span id="model-description">선택하시려면 파일을 먼저 업로드 하세요.</span>
+                <select class="model_select" id="model-select">
+                    <option value="">원본 이미지</option>
+                    <option value="1">빈센트 반 고흐</option>
+                    <option value="2">윌렘 레히텐슈타인</option>
+                    <option value="3">제이슨 푸쉬</option>
+                    <option value="4">아냐 셀린</option>
+                    <option value="5">모자이크</option>
+                    <option value="6">제이 라이던</option>
+                    <option value="7">애드바르드 먼크</option>
+                    <option value="8">오우키 하루나오</option>
+                    <option value="9">피카비아</option>
+                </select>
+            </div>
+        </div>
+        <div class="title_input_box">
+            <input class="title_input" type="text" id="title-input" placeholder="제목" required>
         </div>
 
-        <div class="form-group">
-            <label for="model-select">모델</label>
-            <span id="model-description">을 선택하시려면 파일을 먼저 선택하세요.</span>
-            <select id="model-select" style="display:none;">
-                <!-- <option value="">모델 선택</option> -->
-                <option value="1">빈센트 반 고흐</option>
-                <option value="2">윌렘 레히텐슈타인</option>
-                <option value="3">제이슨 푸쉬</option>
-                <option value="4">아냐 셀린</option>
-                <option value="5">모자이크</option>
-                <option value="6">제이 라이던</option>
-                <option value="7">애드바르드 먼크</option>
-                <option value="8">오우키 하루나오</option>
-                <option value="9">피카비아</option>
-            </select>
+        <div class="content_input_box">
+            <textarea class="content_input" id="content-input" rows="8" placeholder="내용" required></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="title-input">제목</label>
-            <input type="text" id="title-input" required>
-        </div>
-
-        <div class="form-group">
-            <label for="content-input">내용</label>
-            <textarea id="content-input" rows="8" required></textarea>
-        </div>
-
-        <div class="form-group">
-            <button id="put-btn" class="btn" onclick="PatchArticle()">완료</button>
+        <div class="posting_btn_box">
+            <button id="post-btn" class="posting_btn" onclick="PatchArticle()">완료</button>
         </div>
 
     </div>
 
 
-
-
-
+    <script src="../static/js/base_url.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/api.js"></script>
+    <script src="../static/js/update_article.js"></script>
+    <script src="../static/js/nav.js"></script>
 </body>
 
 </html>

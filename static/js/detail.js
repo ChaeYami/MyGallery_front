@@ -53,10 +53,27 @@ async function ArticleDetail() {
     }
 }
 
-// 수정 페이지로 이동
-function redirectUpdatePage() {
-    window.location.href = `update_article.html?id=${article_id}`;
+
+// 글 수정 팝업 열기
+function openEdit() {
+    $('#edit_popup_iframe').attr('src', `${frontend_base_url}/article/update_article.html?id=${article_id}`);
+    $('html, body').css({
+        'overflow': 'hidden'
+    });
+    $('#edit_popup').fadeIn(200);
+    $('.popup').scrollTop(0);
 }
+
+
+// 글 수정 팝업 닫기
+function closeEdit() {
+    $('html, body').css({
+        'overflow': 'auto'
+    });
+    $('#edit_popup').fadeOut(200);
+}
+
+
 
 
 // 글 삭제
@@ -172,11 +189,11 @@ async function ClickHeart() {
             'content-type': 'application/json',
         },
         method: 'POST',
-    })
-    if (response.status === 200) {
-        alert("❤️")
+    }).then((res) => res.json()).then((data) => {
+        alert(data['message'])
         location.reload();
-    }
+    });
+
 }
 
 
@@ -214,7 +231,6 @@ async function isHearted() {
             document.getElementById('heart-icon').innerText = '❤️'
         } else {
             document.getElementById('heart-icon').innerText = '♡'
-
         }
     } else {
         console.error('Failed to load articles:', response.status);
