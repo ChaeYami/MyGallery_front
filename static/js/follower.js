@@ -14,7 +14,8 @@ function getFollowers(user_id) {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         success: function (response) {
-            const rows = response[0]['followers'];
+            // console.log(response)
+            const rows = response['follow'][0]['followers'];
             for (let i = 0; i < rows.length; i++) {
                 let follower_id = rows[i]['id']
                 let follower_nickname = rows[i]['nickname']

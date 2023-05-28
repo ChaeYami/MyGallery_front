@@ -38,7 +38,7 @@ function PostArticle() {
     const trans_image = $('#image-preview').attr('src');
     const change_id = $('#model-select').val()
 
-    if (title == '' || content == '' || image == null || trans_image == null) {
+    if (title == '' || content == '' || image == null || trans_image == null || change_id == "") {
         alert("입력 해주세요.");
         return;
     }
