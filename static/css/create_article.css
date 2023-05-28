@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.page_title {
+    font-size: 20px;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.posting_container {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_preview_box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-bottom: min(400px, 66.67%);
+    overflow: hidden;
+
+    max-width: 600px;
+    max-height: 400px;
+}
+
+.image_preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.image_input_box {
+    width: 60%;
+    float: left;
+}
+
+.model_select_box {
+    width: 40%;
+    float: right;
+}
+
+.model_select_label {
+    float: right;
+}
+
+.model_select {
+    float: right;
+}

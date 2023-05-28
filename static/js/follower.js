@@ -11,7 +11,7 @@ async function handleFollow(user_id) {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: 'POST',
-        
+
     })
     if (response.status === 200) {
         alert("팔로우 완료")
@@ -35,8 +35,8 @@ function getFollowers(user_id) {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         success: function (response) {
-            console.log(response)
-            const rows = response[0]['followers'];
+            // console.log(response)
+            const rows = response['follow'][0]['followers'];
             for (let i = 0; i < rows.length; i++) {
                 let follower_id = rows[i]['id']
                 let follower_nickname = rows[i]['nickname']
