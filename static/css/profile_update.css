@@ -1,55 +1,71 @@
-body{
+body {
     /* background-image: linear-gradient(to bottom, #e7e5bc, #d0e6c5, #bfe5d1, #b7e1dc, #b7dce3, #b6d8e6, #b8d4e7, #bcd0e7, #bcccea, #bfc7eb, #c4c2eb, #ccbce9);  */
     background-color: #daf0e4;
 }
 
-h2{
+h2 {
     padding: 30px;
 }
-.update-container{
+
+.update-container {
     width: 500px;
     border: 1px solid gray;
     height: inherit;
     margin: 80px auto;
     border-radius: 10px;
 }
-#profile-edit-form{
+
+#profile-edit-form {
     display: flex;
     flex-direction: column;
     margin: 50px auto;
     align-content: center;
     flex-wrap: wrap;
     width: 350px;
-
 }
 
-#profile_preview{
+#profile_preview {
+    margin: 0 auto;
     margin-bottom: 20px;
     width: 200px;
 }
-#profile-edit-form div{
+
+#profile-edit-form div {
     display: flex;
     padding: 20px 0;
     align-items: center;
     justify-content: space-between;
     width: 350px;
-
-
-}
-#profile-edit-form button{
-    width: 50px;
 }
 
-.link-style {
-    cursor: pointer;
-}
-#profile-edit-form input{
-    width: 250px ;
-    height: 32px;
-
-}
-#profile-edit-form textarea{
-    width: 250px ;
-    height: 60px;
+#profile-edit-form button {
+    width: 160px;
+    height: 25px;
+    font-size: 15px;
+    background-color: #ffffffb2;
+    border: none;
+    border-radius: 5px;
+    margin: 0 auto;
     
+}
+
+#profile-edit-form input {
+    width: 260px;
+    height: 32px;
+    border-radius: 5px;
+}
+
+#profile-edit-form textarea {
+    width: 260px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+#profile-edit-form button:hover {
+    background-color: #94f0a8;
+    color: #000000;
+}
+
+.update-button{
+    margin: 0 auto;
 }

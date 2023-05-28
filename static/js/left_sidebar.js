@@ -76,7 +76,7 @@ async function handleLogout() {
 
 // 글 작성 팝업 열기
 function openPosting() {
-    $('#posting_popup_iframe').attr('src', `${frontend_base_url}/article/articles.html`);
+    $('#posting_popup_iframe').attr('src', `${frontend_base_url}/article/create_article.html`);
     $('html, body').css({
         'overflow': 'hidden'
     });

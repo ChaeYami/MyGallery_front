@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gallery | 글 작성</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <!-- css -->
+    <link href="../static/css/create_article.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="page_title">
+        게시글 작성 페이지
+    </div>
+    <div class="posting_container">
+        <div class="image_preview_box">
+            <img class="image_preview" id="image-preview"
+                src="https://tacm.com/wp-content/uploads/2018/01/no-image-available.jpeg" alt="">
+        </div>
+
+        <div class="image_input_wrap">
+            <div class="image_input_box">
+                <label for="image-input"></label>
+                <input type="file" id="image-input" accept="image/*" required>
+            </div>
+            <div class="model_select_box">
+                <label for="model-select">이미지 변환 모델 선택</label>
+                <select class="model_select" id="model-select">
+                    <option value="">원본 이미지</option>
+                    <option value="1">빈센트 반 고흐</option>
+                    <option value="2">윌렘 레히텐슈타인</option>
+                    <option value="3">제이슨 푸쉬</option>
+                    <option value="4">아냐 셀린</option>
+                    <option value="5">모자이크</option>
+                    <option value="6">제이 라이던</option>
+                    <option value="7">애드바르드 먼크</option>
+                    <option value="8">오우키 하루나오</option>
+                    <option value="9">피카비아</option>
+                </select>
+            </div>
+        </div>
+        <div class="title_input_box">
+            <input class="title_input" type="text" id="title-input" placeholder="제목" required>
+        </div>
+
+        <div class="content_input_box">
+            <textarea class="content_input" id="content-input" rows="8" placeholder="내용" required></textarea>
+        </div>
+
+        <div class="posting_btn_box">
+            <button id="post-btn" class="posting_btn" onclick="PostArticle()">완료</button>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="../static/js/base_url.js"></script>
+<script src="../static/js/index.js"></script>
+<script src="../static/js/api.js"></script>
+<script src="../static/js/create_article.js"></script>
+<script src="../static/js/nav.js"></script>
+</body>
+
+</html>
