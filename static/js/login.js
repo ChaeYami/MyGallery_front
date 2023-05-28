@@ -1,4 +1,10 @@
-
+window.onload = () => {
+    const urlParams = new URLSearchParams(window.location.search).get('alert');
+    if (urlParams=='1'){
+        alert('회원가입이 완료되었습니다! 회원가입 축하 선물로 500p를 지급해드렸습니다!');
+        window.location.replace(`../user/login.html`)
+    }
+}
 
 
 //로그인

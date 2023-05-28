@@ -27,7 +27,7 @@ async function handleSignup() {
         alert("빈칸을 입력해 주세요.")
         
     }else if (response.status == 400){
-        alert("이미 존재하는 아이디 또는 이메일입니다.");
+        alert("400");
     }
 }
 
@@ -37,7 +37,7 @@ async function handleSignupButton() {
 
     if (response.status == 201) {
         alert("이메일 발송 완료. 이메일 인증 후 회원가입을 완료해주세요")
-        window.location.replace(`../user/login.html`)
+        window.location.replace(`../index.html`)
     }
     
 }
