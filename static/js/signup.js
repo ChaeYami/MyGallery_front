@@ -13,21 +13,21 @@ async function handleSignup() {
     formData.append("password", password);
     formData.append("nickname", nickname);
     formData.append("profile_img", profile_img);
-    
+
     const response = await fetch(`${backend_base_url}/user/signup/`, {
         headers: {
         },
         method: 'POST',
         body: formData,
-        });
-    
-    if (response.status==201){
+    });
+
+    if (response.ok) {
         return response
-    }else if (account == '' || password == '' || nickname == '' || email == ''){
-        alert("빈칸을 입력해 주세요.")
-        
-    }else if (response.status == 400){
-        alert("400");
+    } else {
+        // 에러 처리
+        const errorData = await response.json();
+        const errorArray = Object.entries(errorData);
+        alert(errorArray[0][1]);
     }
 }
 
@@ -39,5 +39,4 @@ async function handleSignupButton() {
         alert("이메일 발송 완료. 이메일 인증 후 회원가입을 완료해주세요")
         window.location.replace(`../index.html`)
     }
-    
 }
