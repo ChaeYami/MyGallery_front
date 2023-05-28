@@ -30,7 +30,8 @@ async function ArticleDetail() {
         <a href="${frontend_base_url}/user/profile.html?user_id=${response_json.user.pk}">
             <span class="author-img">
                 <img id="author-img" src="${backend_base_url}/media/${response_json.user.profile_img}"
-                    alt="...">
+                alt="No Image"
+                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
             </span>
             <span id="author">&nbsp${response_json.user.nickname}</span>
         </a>
@@ -120,7 +121,8 @@ async function loadComments() {
                 <a class = "comment-author" href="${frontend_base_url}/user/profile.html?user_id=${comment.user.pk}">
                     <!-- 유저 프로필 사진 -->
                     <span class="profile-img" id="comment-author-img">
-                        <img src="${backend_base_url}/media/${comment.user.profile_img}" alt="...">
+                        <img src="${backend_base_url}/media/${comment.user.profile_img}" alt="No Image"
+                        onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
                     </span>
                     &nbsp${comment.user.nickname}
                 </a>
