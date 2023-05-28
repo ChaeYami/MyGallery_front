@@ -36,6 +36,7 @@ h2 {
     align-items: center;
     justify-content: space-between;
     width: 350px;
+    flex-direction: column;
 }
 
 #profile-edit-form button {

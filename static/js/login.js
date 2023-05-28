@@ -3,6 +3,9 @@ window.onload = () => {
     if (urlParams=='1'){
         alert('회원가입이 완료되었습니다! 회원가입 축하 선물로 500p를 지급해드렸습니다!');
         window.location.replace(`../user/login.html`)
+    }else if(urlParams=='2'){
+        alert('만료된 인증 링크입니다.');
+        window.location.replace(`../index.html`)
     }
 }
 
