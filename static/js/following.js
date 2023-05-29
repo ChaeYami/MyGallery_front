@@ -3,6 +3,11 @@ $(document).ready(function () {
     getFollowers(urlParams)
 })
 
+const payload = localStorage.getItem("payload");
+const payload_parse = JSON.parse(payload)
+const me_id = payload_parse.user_id;
+
+
 function getFollowers(user_id) {
     $('#following_list').empty()
 
@@ -14,13 +19,23 @@ function getFollowers(user_id) {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         success: function (response) {
+            let id_list = [];  // id 값을 저장할 배열 초기화
+
+            for (let i = 0; i < response['request_follow'][0]['followings'].length; i++) {
+                let item = response['request_follow'][0]['followings'][i];
+                id_list.push(item['id']);  // 각 객체의 id 값을 배열에 추가
+            }
+
             const rows = response['follow'][0]['followings'];
+
             for (let i = 0; i < rows.length; i++) {
                 let following_id = rows[i]['id']
                 let following_nickname = rows[i]['nickname']
                 let following_profile_image = rows[i]['profile_image']
 
-                let temp_html = `<div class="user_wrap">
+
+                if (id_list.includes(following_id)) {
+                    let temp_html = `<div class="user_wrap">
                                     <a href="#" onclick="openProfile(this)" name="${following_id}">
                                         <div class="profile_image_box">
                                             <img class="profile_image"
@@ -32,9 +47,45 @@ function getFollowers(user_id) {
                                             ${following_nickname}
                                         </div>
                                     </a>
+                                    <button class="follow_btn" onclick="listHandleFollow(${following_id})">언팔로우</button>
                                 </div>`
 
-                $('#following_list').append(temp_html)
+                    $('#following_list').append(temp_html)
+                } else if (following_id === me_id) {
+                    let temp_html = `<div class="user_wrap">
+                                    <a href="#" onclick="openProfile(this)" name="${following_id}">
+                                        <div class="profile_image_box">
+                                            <img class="profile_image"
+                                                src="${backend_base_url}${following_profile_image}"
+                                                alt="No Image"
+                                                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
+                                        </div>
+                                        <div class="nickname">
+                                            ${following_nickname}
+                                        </div>
+                                    </a>
+                                    <button class="follow_btn" disabled>나</button>
+                                </div>`
+
+                    $('#following_list').append(temp_html)
+                } else {
+                    let temp_html = `<div class="user_wrap">
+                                    <a href="#" onclick="openProfile(this)" name="${following_id}">
+                                        <div class="profile_image_box">
+                                            <img class="profile_image"
+                                                src="${backend_base_url}${following_profile_image}"
+                                                alt="No Image"
+                                                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
+                                        </div>
+                                        <div class="nickname">
+                                            ${following_nickname}
+                                        </div>
+                                    </a>
+                                    <button class="follow_btn" onclick="listHandleFollow(${following_id})">팔로우</button>
+                                </div>`
+
+                    $('#following_list').append(temp_html)
+                }
             }
         },
         error: function () {
@@ -47,4 +98,26 @@ function getFollowers(user_id) {
 function openProfile(element) {
     let user_id = element.name
     window.parent.location.href = `${frontend_base_url}/user/profile.html?user_id=${user_id}`;
+}
+
+
+async function listHandleFollow(target_id) {
+    const response = await fetch(`${backend_base_url}/user/${target_id}/follow/`, {
+        headers: {
+            'content-type': 'application/json',
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: 'POST',
+
+    })
+    if (response.status === 200) {
+        alert("팔로우 완료")
+        window.location.reload()
+    } else if (response.status === 205) {
+        alert("언팔로우 완료")
+        window.location.reload()
+    } else if (response.status === 403) {
+        alert("팔로우 실패")
+    }
+
 }
