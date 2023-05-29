@@ -23,7 +23,6 @@ async function TransForm(formData) {
         return response; // 결과 반환
 
     } catch (error) {
-        console.log("Error: " + error);
         alert('오류 입니다.');
         // window.location.href = `${frontend_base_url}/article/404.html`
         return error;

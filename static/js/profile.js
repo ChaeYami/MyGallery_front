@@ -72,7 +72,6 @@ async function Profile(user_id) {
         const followButton = document.getElementById('follow-button')
 
         const followers = response_json.followers.includes(account)
-        console.log(followers)
         if (followers) {
             followButton.innerHTML = `<button onclick="handleFollow(${user_id})">언팔로우</button>`;
         } else {
@@ -186,7 +185,6 @@ async function loadHeartArticles(user_id) {
 
     if (response.ok) {
         const articles = await response.json();
-        console.log(articles)
         const articleListContainer = document.getElementById('article-list');
         articles.forEach((article) => {
             const articleElement = document.createElement('div');
