@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 leftSidebarContainer.innerHTML = data;
             })
-            // 이 것이 없어서 로그아웃이 나오는 것 같음 오류 발생 시 삭제 하시면 됨.
             .then(() => {
                 // 이 것이 없어서 로그아웃이 나오는 것 같음 오류 발생 시 삭제 하시면 됨.
 
