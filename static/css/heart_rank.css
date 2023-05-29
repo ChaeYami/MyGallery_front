@@ -1,40 +1,51 @@
+#heart_rank {
+  bottom: 10px;
+  position: absolute;
+  left: 0;
+  width: 20vw;
+  font-size: 15px;
+}
+
 .rank-table {
-    width: 100%;
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
-.rank-table th, .rank-table td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #000;
-    text-align: center;
+.rank-table th,
+.rank-table td {
+  padding: 8px;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  border: none;
 }
 
-.rank-table th {    
-color: black;
-text-align: center;
-white-space: normal;
+.rank-table th {
+  color: black;
+  text-align: center;
+  white-space: normal;
+  width: 18vw;
 }
 
 
 .rank-table tbody tr {
-color:#000;
+  color: #000;
 }
 
-#heart_rank a{
+#heart_rank a {
   color: rgb(54, 13, 109) !important;
 }
 
-#heart_rank h2{
-  color: black; 
+#heart_rank h2 {
+  color: black;
   text-align: center;
+  padding: 10px;
 }
 
 @media screen and (max-width: 1200px) {
-  #heart_rank{
+  #heart_rank {
     display: none;
   }
 }
+
 /* 
 @media screen and (max-width: 1300px) {
   .rank-author{
