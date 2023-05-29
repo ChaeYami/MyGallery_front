@@ -1,9 +1,9 @@
 window.onload = () => {
     const urlParams = new URLSearchParams(window.location.search).get('alert');
-    if (urlParams=='1'){
+    if (urlParams == '1') {
         alert('회원가입이 완료되었습니다! 회원가입 축하 선물로 500p를 지급해드렸습니다!');
         window.location.replace(`../user/login.html`)
-    }else if(urlParams=='2'){
+    } else if (urlParams == '2') {
         alert('만료된 인증 링크입니다.');
         window.location.replace(`../index.html`)
     }
@@ -43,8 +43,30 @@ async function Login() {
         );
 
         localStorage.setItem("payload", jsonPayload);
-        alert("로그인 성공");
-        
+
+        const payload = localStorage.getItem("payload");
+        const payload_parse = JSON.parse(payload)
+        const me_id = payload_parse.user_id;
+
+        $.ajax({
+            url: `${backend_base_url}/user/check/`,
+            type: "GET",
+            dataType: "json",
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+            success: function (response) {
+                alert(response["message"]);
+            },
+            error: function (xhr) {
+                const errorData = xhr.responseJSON;
+                const errorArray = Object.entries(errorData);
+                alert(errorArray[0][1]);
+            }
+        });
+
+
+
         location.replace('../index.html')
 
     } else if (response.status === 400 && response_json["non_field_errors"]) {
