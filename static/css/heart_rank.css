@@ -1,0 +1,43 @@
+.rank-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.rank-table th, .rank-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+
+.rank-table th {    
+color: black;
+text-align: center;
+white-space: normal;
+}
+
+
+.rank-table tbody tr {
+color:#000;
+}
+
+#heart_rank a{
+  color: rgb(54, 13, 109) !important;
+}
+
+#heart_rank h2{
+  color: black; 
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  #heart_rank{
+    display: none;
+  }
+}
+/* 
+@media screen and (max-width: 1300px) {
+  .rank-author{
+    width: 0px;
+  }
+} */

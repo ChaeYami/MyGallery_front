@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.text())
             .then(data => {
                 leftSidebarContainer.innerHTML = data;
-
+            })
+            .then(() => {
 
                 const payload = localStorage.getItem("payload");
                 const payload_parse = JSON.parse(payload);
