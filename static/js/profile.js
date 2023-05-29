@@ -258,13 +258,15 @@ function closeFollowers() {
         'overflow': 'auto'
     });
     $('#follower_popup').fadeOut(200);
+    window.location.reload()
 }
 
 
-// 팔로워 목록 열기
+// 팔로워 목록 닫기
 function closeFollowings() {
     $('html, body').css({
         'overflow': 'auto'
     });
     $('#following_popup').fadeOut(200);
+    window.location.reload()
 }
