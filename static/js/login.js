@@ -44,9 +44,6 @@ async function Login() {
 
         localStorage.setItem("payload", jsonPayload);
 
-        const payload = localStorage.getItem("payload");
-        const payload_parse = JSON.parse(payload)
-        const me_id = payload_parse.user_id;
 
         $.ajax({
             url: `${backend_base_url}/user/check/`,
