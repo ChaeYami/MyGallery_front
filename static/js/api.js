@@ -64,7 +64,7 @@ function PostArticle() {
             Authorization: `Bearer ${localStorage.getItem('access')}`
         },
         success: function (response) {
-            alert("글 작성 완료");
+            alert("글 작성 완료. (-100p)");
             window.location.href = `${frontend_base_url}/index.html`;
         },
         error: function (xhr) {
