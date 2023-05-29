@@ -70,7 +70,7 @@ function PostArticle() {
         error: function (xhr) {
             const errorData = xhr.responseJSON;
             const errorArray = Object.entries(errorData);
-            alert(errorArray[0][1][0]);
+            alert(errorArray[0][1]);
         }
     });
 };
