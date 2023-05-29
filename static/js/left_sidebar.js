@@ -10,12 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 leftSidebarContainer.innerHTML = data;
             })
             .then(() => {
+                // 이 것이 없어서 로그아웃이 나오는 것 같음 오류 발생 시 삭제 하시면 됨.
 
                 const payload = localStorage.getItem("payload");
                 const payload_parse = JSON.parse(payload);
                 intro.innerHTML = `
                 <a href="${frontend_base_url}/user/profile.html?user_id=${payload_parse.user_id}">
-                <span id="sidebar-profile"><img class="profile-img" src="${backend_base_url}/media/${payload_parse.profile_img}" alt=""></span>
+                <span id="sidebar-profile"><img class="profile-img" src="${backend_base_url}/media/${payload_parse.profile_img}" alt="No Image"
+                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'"></span>
                 &nbsp${payload_parse.nickname}</a>
             `
 
@@ -47,6 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     createbtn.style.display = "block";
                     signupbtn.style.display = "none";
                 }
+
+
+
             })
             .catch(error => {
                 console.error("사이드바를 불러오는데 오류가 발생했습니다.", error);

@@ -30,7 +30,8 @@ async function ArticleDetail() {
         <a href="${frontend_base_url}/user/profile.html?user_id=${response_json.user.pk}">
             <span class="author-img">
                 <img id="author-img" src="${backend_base_url}/media/${response_json.user.profile_img}"
-                    alt="...">
+                alt="No Image"
+                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
             </span>
             <span id="author">&nbsp${response_json.user.nickname}</span>
         </a>
@@ -52,14 +53,30 @@ async function ArticleDetail() {
     }
 }
 
-// 수정 페이지로 이동
-function redirectUpdatePage() {
-    window.location.href = `update_article.html?id=${article_id}`;
+
+// 글 수정 팝업 열기
+function openEdit() {
+    $('#edit_popup_iframe').attr('src', `${frontend_base_url}/article/update_article.html?id=${article_id}`);
+    $('html, body').css({
+        'overflow': 'hidden'
+    });
+    $('#edit_popup').fadeIn(200);
+    $('.popup').scrollTop(0);
 }
 
 
-// 글 삭제
+// 글 수정 팝업 닫기
+function closeEdit() {
+    $('html, body').css({
+        'overflow': 'auto'
+    });
+    $('#edit_popup').fadeOut(200);
+}
 
+
+
+
+// 글 삭제
 async function ArticleDelete() {
     if (confirm("삭제하시겠습니까?")) {
         const response = await fetch(`${backend_base_url}/article/${article_id}`, {
@@ -80,7 +97,6 @@ async function ArticleDelete() {
 
 
 // 댓글 작성
-
 async function save_comment() {
     const comment = document.getElementById("comment").value
 
@@ -120,7 +136,8 @@ async function loadComments() {
                 <a class = "comment-author" href="${frontend_base_url}/user/profile.html?user_id=${comment.user.pk}">
                     <!-- 유저 프로필 사진 -->
                     <span class="profile-img" id="comment-author-img">
-                        <img src="${backend_base_url}/media/${comment.user.profile_img}" alt="...">
+                        <img src="${backend_base_url}/media/${comment.user.profile_img}" alt="No Image"
+                        onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
                     </span>
                     &nbsp${comment.user.nickname}
                 </a>
@@ -170,11 +187,10 @@ async function ClickHeart() {
             'content-type': 'application/json',
         },
         method: 'POST',
-    })
-    if (response.status === 200) {
-        alert("❤️")
+    }).then((res) => res.json()).then((data) => {
+        alert(data['message'])
         location.reload();
-    }
+    });
 }
 
 
@@ -212,7 +228,6 @@ async function isHearted() {
             document.getElementById('heart-icon').innerText = '❤️'
         } else {
             document.getElementById('heart-icon').innerText = '♡'
-
         }
     } else {
         console.error('Failed to load articles:', response.status);
