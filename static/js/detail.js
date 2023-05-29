@@ -115,7 +115,7 @@ async function save_comment() {
     })
 
     if (response.status == 201) {
-        alert("댓글 작성 완료")
+        alert("댓글 작성 완료. (+50p)")
         location.reload();
     } else if (comment == '') {
         alert("댓글을 입력해 주세요.")
