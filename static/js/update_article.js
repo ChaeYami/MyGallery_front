@@ -35,6 +35,7 @@ $(document).ready(async function () {
         if (file) {
             $('#model-description').css('display', 'none');
             $('#model-select').css('display', 'block');
+            $('#model-select-label').css('display', 'flex');
         }
 
         // 파일 크기 제한 (단위: 바이트)

@@ -90,8 +90,7 @@ $(document).ready(async function () {
             reader.readAsDataURL(file);
         }
     });
-
-
-
-
 });
+
+
+

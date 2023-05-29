@@ -65,7 +65,7 @@ function PostArticle() {
         },
         success: function (response) {
             alert("글 작성 완료");
-            window.location.href = `${frontend_base_url}/index.html`;
+            window.parent.location.href = `${frontend_base_url}/index.html`;
         },
         error: function (xhr) {
             const errorData = xhr.responseJSON;
@@ -145,7 +145,7 @@ function PatchArticle() {
         },
         success: function (response) {
             alert("글 수정 완료");
-            window.location.href = `${frontend_base_url}/article/detail.html?id=${article_id}`;
+            window.parent.location.href = `${frontend_base_url}/article/detail.html?id=${article_id}`;
         },
         error: function (xhr) {
             const message = xhr.responseJSON.message;
