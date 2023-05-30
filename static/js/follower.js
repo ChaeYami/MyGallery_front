@@ -36,53 +36,53 @@ function getFollowers(user_id) {
 
                 if (id_list.includes(follower_id)) {
                     let temp_html = `<div class="user_wrap">
-                                    <a href="#" onclick="openProfile(this)" name="${follower_id}">
-                                        <div class="profile_image_box">
-                                            <img class="profile_image"
-                                                src="${backend_base_url}${follower_profile_image}"
-                                                alt="No Image"
-                                                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
-                                        </div>
-                                        <div class="nickname">
-                                            ${follower_nickname}
-                                        </div>
-                                    </a>
-                                    <button class="follow_btn" onclick="listHandleFollow(${follower_id})">언팔로우</button>
-                                </div>`
+                                        <a href="#" onclick="openProfile(this)" name="${follower_id}">
+                                            <div class="profile_image_box">
+                                                <img class="profile_image"
+                                                    src="${backend_base_url}${follower_profile_image}"
+                                                    alt="No Image"
+                                                    onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
+                                            </div>
+                                            <div class="nickname">
+                                                ${follower_nickname}
+                                            </div>
+                                        </a>
+                                        <button class="follow_btn" onclick="listHandleFollow(${follower_id})">언팔로우</button>
+                                    </div>`
 
                     $('#follower_list').append(temp_html)
                 } else if (follower_id === me_id) {
                     let temp_html = `<div class="user_wrap">
-                                    <a href="#" onclick="openProfile(this)" name="${follower_id}">
-                                        <div class="profile_image_box">
-                                            <img class="profile_image"
-                                                src="${backend_base_url}${follower_profile_image}"
-                                                alt="No Image"
-                                                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
-                                        </div>
-                                        <div class="nickname">
-                                            ${follower_nickname}
-                                        </div>
-                                    </a>
-                                    <button class="follow_btn" disabled>나</button>
-                                </div>`
+                                        <a href="#" onclick="openProfile(this)" name="${follower_id}">
+                                            <div class="profile_image_box">
+                                                <img class="profile_image"
+                                                    src="${backend_base_url}${follower_profile_image}"
+                                                    alt="No Image"
+                                                    onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
+                                            </div>
+                                            <div class="nickname">
+                                                ${follower_nickname}
+                                            </div>
+                                        </a>
+                                        <button class="follow_btn" disabled>나</button>
+                                    </div>`
 
                     $('#follower_list').append(temp_html)
                 } else {
                     let temp_html = `<div class="user_wrap">
-                                    <a href="#" onclick="openProfile(this)" name="${follower_id}">
-                                        <div class="profile_image_box">
-                                            <img class="profile_image"
-                                                src="${backend_base_url}${follower_profile_image}"
-                                                alt="No Image"
-                                                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
-                                        </div>
-                                        <div class="nickname">
-                                            ${follower_nickname}
-                                        </div>
-                                    </a>
-                                    <button class="follow_btn" onclick="listHandleFollow(${follower_id})">팔로우</button>
-                                </div>`
+                                        <a href="#" onclick="openProfile(this)" name="${follower_id}">
+                                            <div class="profile_image_box">
+                                                <img class="profile_image"
+                                                    src="${backend_base_url}${follower_profile_image}"
+                                                    alt="No Image"
+                                                    onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
+                                            </div>
+                                            <div class="nickname">
+                                                ${follower_nickname}
+                                            </div>
+                                        </a>
+                                        <button class="follow_btn" onclick="listHandleFollow(${follower_id})">팔로우</button>
+                                    </div>`
 
                     $('#follower_list').append(temp_html)
                 }
