@@ -19,6 +19,7 @@ function getFollowers(user_id) {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         success: function (response) {
+
             let id_list = [];  // id 값을 저장할 배열 초기화
 
             for (let i = 0; i < response['request_follow'][0]['followings'].length; i++) {
