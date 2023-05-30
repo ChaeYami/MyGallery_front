@@ -262,7 +262,7 @@ function closeFollowers() {
 }
 
 
-// 팔로워 목록 닫기
+// 팔로잉 목록 닫기
 function closeFollowings() {
     $('html, body').css({
         'overflow': 'auto'
