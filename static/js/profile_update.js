@@ -14,7 +14,7 @@ async function existingProfile() {
     const response = await fetch(`${backend_base_url}/user/${user_id}/`, {
         headers: {
             'content-type': 'application/json',
-            "Authorization": "Bearer " + localStorage.getItem("access")
+            "Authorization": "Bearer " + token
         },
         method: 'GET',
     })
@@ -94,23 +94,6 @@ async function updateProfile() {
 
 
 function deleteProfileImage() {
-    const formData = new FormData();
-
-    fetch(`${backend_base_url}/user/${user_id}/`, {
-        headers: {
-            "Authorization": "Bearer " + token,
-        },
-        method: 'PATCH',
-        body: formData
-    }).then(response => {
-        if (response.status == 200) {
-            alert("프로필 이미지가 삭제되었습니다.");
-            // 이미지 미리보기 초기화
-            document.getElementById('profile_preview').src = "";
-        } else {
-            alert("프로필 이미지 삭제 실패");
-        }
-    }).catch(error => {
-        console.error("프로필 이미지 삭제 오류:", error);
-    });
+    $('#profile_img').val('');
+    $('#profile_preview').attr('src', "../static/img/unknown.jpg")
 }
