@@ -14,12 +14,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const payload = localStorage.getItem("payload");
                 const payload_parse = JSON.parse(payload);
-                intro.innerHTML = `
-                <a href="${frontend_base_url}/user/profile.html?user_id=${payload_parse.user_id}">
-                <span id="sidebar-profile"><img class="profile-img" src="${backend_base_url}/media/${payload_parse.profile_img}" alt="No Image"
-                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'"></span>
-                &nbsp${payload_parse.nickname}</a>
-            `
+                const me_id = payload_parse.user_id;
+
+                if (me_id) {
+                    $.ajax({
+                        url: `${backend_base_url}/user/${me_id}/`,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (response) {
+                            const nickname = response['nickname']
+                            const point = response['point']
+                            const account = response['account']
+                            const profile_image = response['profile_img']
+                            const email = response['email']
+
+                            $('#profile_url_tag').attr('href', `${frontend_base_url}/user/profile.html?user_id=${me_id}`)
+                            $('#profile_img_tag').attr('src', `${backend_base_url}${profile_image}`)
+                            $('#nickname_tag').text(`${nickname}(${account})`)
+                            $('#point_tag').text(`포인트 : ${point} point`)
+                            $('#point_tag').attr('style', "display: block;")
+                            $('#email_tag').text(email)
+                            $('#email_tag').attr('style', "display: block;")
+                        }
+                    });
+                }
 
                 let navbarRight = document.getElementById("navbar-right");
                 let newLi = document.createElement("li");

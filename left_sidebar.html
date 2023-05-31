@@ -12,7 +12,7 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <!-- JS -->
-    
+
 
     <!-- CSS -->
     <link href="../static/css/heart_rank.css" rel="stylesheet">
@@ -26,7 +26,23 @@
         <ul id="navbar-right" class="navbar-nav mr-auto">
             <li class="nav-item disable">
                 <!-- 로그인시 회원 로그인 정보를 보여줌 : 닉네임 누르면 마이페이지 -->
-                <a id="intro"></a>
+                <a id="intro">
+                    <a id="profile_url_tag" href="#">
+                        <span id="sidebar-profile">
+                            <img id="profile_img_tag" class="profile-img" src="" alt="No Image"
+                                onerror="this.onerror=null; this.src='../static/img/unknown.jpg'">
+                        </span>&nbsp
+                        <span id="nickname_tag">
+                            로그인 해주세요.
+                        </span>
+                    </a>
+                </a>
+            </li>
+            <li>
+                <span id="point_tag">포인트</span>
+            </li>
+            <li>
+                <span id="email_tag">이메일</span>
             </li>
             <li><a href="../index.html"><img src="../static/img/home.png" alt="" style="width:40px;"> &nbsp 홈</a></li>
 
@@ -46,10 +62,11 @@
         </ul>
 
 
-    
-    <div id="heart_rank">
-        <h2>Ranking</h2>       
-    </div>
+
+        <div id="heart_rank">
+            <h2>Ranking</h2>
+        </div>
 
 </body>
+
 </html>
