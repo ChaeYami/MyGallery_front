@@ -39,7 +39,7 @@ async function handleFollow(user_id) {
 
 
 async function Profile(user_id) {
-    const response = await fetch(`${backend_base_url}/user/${user_id}`, {
+    const response = await fetch(`${backend_base_url}/user/${user_id}/`, {
         method: 'GET',
     })
 

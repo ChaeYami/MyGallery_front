@@ -24,7 +24,8 @@
 .image_box {
     width: 500px;
     min-width: 300px;
-    height: 500px;
+    height: 100%;
+    max-height: 500px;
 
     display: flex;
     flex-direction: row;
@@ -35,8 +36,10 @@
 .image {
     width: 500px;
     min-width: 300px;
-    height: 500px;
+    height: 100%;
+    max-height: 500px;
     border-radius: 10px;
+    object-fit: contain;
 }
 
 .box_wrap {
