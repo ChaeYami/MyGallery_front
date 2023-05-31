@@ -74,19 +74,27 @@ a {
     height: 40px;
     border-radius: 100%;
 }
-#sidebar-profile .profile-img{
+
+#sidebar-profile .profile-img {
     width: inherit;
     height: inherit;
     object-fit: cover;
     border-radius: 100%;
 }
-.navbar{
+
+#point_tag,
+#email_tag {
+    color: black;
+    display: none;
+}
+
+.navbar {
 
     height: 50px;
     width: 100%;
     position: fixed;
     top: -50px;
-    background-color:#fffee2a1
+    background-color: #fffee2a1
 }
 
 .navbar li {

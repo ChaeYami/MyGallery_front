@@ -102,17 +102,15 @@ function deleteProfileImage() {
         },
         method: 'PATCH',
         body: formData
-    })
-        .then(response => {
-            if (response.status == 200) {
-                alert("프로필 이미지가 삭제되었습니다.");
-                // 이미지 미리보기 초기화
-                document.getElementById('profile_preview').src = "";
-            } else {
-                alert("프로필 이미지 삭제 실패");
-            }
-        })
-        .catch(error => {
-            console.error("프로필 이미지 삭제 오류:", error);
-        });
+    }).then(response => {
+        if (response.status == 200) {
+            alert("프로필 이미지가 삭제되었습니다.");
+            // 이미지 미리보기 초기화
+            document.getElementById('profile_preview').src = "";
+        } else {
+            alert("프로필 이미지 삭제 실패");
+        }
+    }).catch(error => {
+        console.error("프로필 이미지 삭제 오류:", error);
+    });
 }

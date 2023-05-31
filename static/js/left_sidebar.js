@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         type: "GET",
                         dataType: "json",
                         success: function (response) {
-                            console.log(response)
                             const nickname = response['nickname']
                             const point = response['point']
                             const account = response['account']
@@ -33,7 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             $('#profile_img_tag').attr('src', `${backend_base_url}${profile_image}`)
                             $('#nickname_tag').text(`${nickname}(${account})`)
                             $('#point_tag').text(`포인트 : ${point} point`)
+                            $('#point_tag').attr('style', "display: block;")
                             $('#email_tag').text(email)
+                            $('#email_tag').attr('style', "display: block;")
                         }
                     });
                 }
