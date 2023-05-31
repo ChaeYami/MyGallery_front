@@ -28,8 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             const profile_image = response['profile_img']
                             const email = response['email']
 
+                            if (profile_image !== null) {
+                                $('#profile_img_tag').attr('src', `${backend_base_url}${profile_image}`)
+                            }
                             $('#profile_url_tag').attr('href', `${frontend_base_url}/user/profile.html?user_id=${me_id}`)
-                            $('#profile_img_tag').attr('src', `${backend_base_url}${profile_image}`)
                             $('#nickname_tag').text(`${nickname}(${account})`)
                             $('#point_tag').text(`포인트 : ${point} point`)
                             $('#point_tag').attr('style', "display: block;")
