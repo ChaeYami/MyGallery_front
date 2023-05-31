@@ -44,9 +44,6 @@ function toggleFileInput() {
 function previewImage() {
     const fileInput = document.getElementById('profile_img');
     const file = fileInput.files[0];
-
-    console.log(file)
-
     const reader = new FileReader();
 
     reader.onloadend = function () {
