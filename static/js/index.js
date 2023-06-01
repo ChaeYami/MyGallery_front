@@ -109,7 +109,7 @@ function getArticles() {
             }
         },
         error: function () {
-            alert("불러오기 실패!");
+            alert(response.status);
         }
     });
 }
